@@ -1,0 +1,3247 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syntez-rub.ru</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <style>
+        .header-gradient {
+            background: linear-gradient(90deg, #1e3a8a 0%, #2563eb 50%, #3b82f6 100%);
+        }
+        
+        .phone-pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .logo-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(to bottom right, rgba(255,255,255,0.2), rgba(255,255,255,0));
+            transform: rotate(-15deg);
+            z-index: 1;
+        }
+        .nav-link {
+            position: relative;
+            padding: 0.5rem 1rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #bfdbfe;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: #bfdbfe;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 0;
+            transition: all 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 220px;
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.2s ease;
+            z-index: 50;
+        }
+        .dropdown-item {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            color: #4b5563;
+            transition: all 0.2s ease;
+            text-align: left;
+        }
+        .dropdown-item:hover {
+            background-color: #3b82f6;
+            color: white;
+        }
+        .group:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+        }
+        .container.mx-auto.px-4 {
+    max-width: 1024px;
+    
+}
+    </style>
+     <header class="sticky top-0 z-50">
+    <!-- Верхняя строка: белый фон -->
+    <div class="bg-white text-gray-800 shadow-lg">
+        <div class="container mx-auto py-3">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+               <!-- Логотип и название -->
+<div class="flex items-center space-x-5">
+    <div class="logo-container bg-gray-100 p-3 rounded-xl">
+        <img src="./Img/images.png" alt="Логотип СИНТЕЗ" class="w-16 h-16 object-contain relative z-10">
+    </div>
+    <div>
+        <h1 class="text-2xl font-bold text-gray-900">ООО "СИНТЕЗ"</h1>
+        <p class="text-gray-600 text-base">Сервисный центр в Рубцовске</p>
+    </div>
+</div>
+<!-- Контактная информация -->
+<div class="flex flex-col sm:flex-row items-center gap-5 sm:gap-8 text-base">
+    <!-- Социальные сети -->
+    <div class="flex items-center space-x-6">
+        <a href="https://t.me/yourchannel" target="_blank" class="flex items-center hover:text-blue-600 transition transform hover:scale-110">
+            <i class="fab fa-telegram text-2xl text-blue-500 mr-2"></i>
+            <span class="hidden sm:inline text-gray-700 font-medium">Telegram</span>
+        </a>
+        <a href="https://wa.me/74959679878" target="_blank" class="flex items-center hover:text-green-600 transition transform hover:scale-110">
+            <i class="fab fa-whatsapp text-2xl text-green-500 mr-2"></i>
+            <span class="hidden sm:inline text-gray-700 font-medium">WhatsApp</span>
+        </a>
+    </div>
+    
+    <!-- Email -->
+    <a href="mailto:mail@sintez.shop" class="flex items-center hover:text-blue-600 transition">
+        <i class="far fa-envelope text-2xl text-gray-600 mr-3"></i>
+        <span class="hidden sm:inline text-gray-700 font-medium">mail@sintez.shop</span>
+    </a>
+    
+    <!-- Телефон -->
+    <div class="flex items-center font-semibold text-gray-550 text-lg">
+        <i class="fas fa-phone-alt text-xl text-blue-500 mr-3"></i>
+        <span>+7 495 967-98-78</span>
+    </div>
+    
+    <!-- Кнопка заказа звонка -->
+    <button id="callback-btn" class="bg-blue-600 text-white hover:bg-blue-700 font-semibold px-6 py-3 rounded-xl shadow-lg transition transform hover:scale-105 flex items-center text-base">
+         <a href="#contact">
+         <i class="fas fa-phone mr-3 text-lg"></i>
+        Заказать звонок
+         </a>
+    </button>
+</div>
+            </div>
+        </div>
+    </div>
+
+        <!-- Нижняя строка: синяя с белым текстом (меню) -->
+        <div class="bg-gradient-to-r from-blue-800 via-blue-700 to-blue-900 text-white shadow-md">
+            <div class="container mx-auto px-6 py-4">
+                <nav class="flex flex-wrap justify-center gap-x-16 gap-y-3 text-center">
+                    <!-- Главная -->
+                    <a href="#home" class="text-2xl font-bold transition duration-300 hover:text-blue-200 relative after:content-[''] after:absolute after:w-0 after:h-1 after:bg-blue-200 after:left-1/2 after:-translate-x-1/2 after:bottom-0 after:transition-all after:duration-300 hover:after:w-full">Главная</a>
+
+                    <!-- Услуги -->
+                    <a href="#repair" class="text-2xl font-bold transition duration-300 hover:text-blue-200 relative after:content-[''] after:absolute after:w-0 after:h-1 after:bg-blue-200 after:left-1/2 after:-translate-x-1/2 after:bottom-0 after:transition-all after:duration-300 hover:after:w-full">Услуги</a>
+
+                    <!-- Магазин -->
+                    <a href="#shop" class="text-2xl font-bold transition duration-300 hover:text-blue-200 relative after:content-[''] after:absolute after:w-0 after:h-1 after:bg-blue-200 after:left-1/2 after:-translate-x-1/2 after:bottom-0 after:transition-all after:duration-300 hover:after:w-full">Магазин</a>
+
+                    <!-- О нас (с выпадающим меню) -->
+                    <div class="relative group">
+                        <a href="#about-company" class="text-2xl font-bold transition duration-300 hover:text-blue-200 relative after:content-[''] after:absolute after:w-0 after:h-1 after:bg-blue-200 after:left-1/2 after:-translate-x-1/2 after:bottom-0 after:transition-all after:duration-300 hover:after:w-full">О нас</a>
+                        <div class="dropdown-menu">
+                            <a href="#about-company" class="dropdown-item"><i class="fas fa-building mr-2"></i> О компании</a>
+                            <a href="#requisites" class="dropdown-item"><i class="fas fa-file-invoice mr-2"></i> Реквизиты</a>
+                            <a href="#gallery" class="dropdown-item"><i class="fas fa-images mr-2"></i> Галерея</a>
+                        </div>
+                    </div>
+                    
+                    <a href="#contact" class="text-2xl font-bold transition duration-300 hover:text-blue-200 relative after:content-[''] after:absolute after:w-0 after:h-1 after:bg-blue-200 after:left-1/2 after:-translate-x-1/2 after:bottom-0 after:transition-all after:duration-300 hover:after:w-full">Контакты</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+<script>
+  // Открытие галереи — прокрутка к секции #gallery
+  document.getElementById('open-gallery').addEventListener('click', function(e) {
+    e.preventDefault();
+    document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
+  });
+</script>
+            
+
+    <main id="content-container">
+        <section id="home" class="page active">
+            <!-- Первая секция -->
+            <section class="hero-image section_one min-h-[50vh] md:min-h-[87vh]" 
+         style="background-image: url('Img/4v.jpg'); 
+                background-size: cover; 
+                background-position: center; 
+                background-attachment: fixed;">
+                 <div class="absolute inset-0 bg-blue-900 bg-opacity-30"></div>
+                <div class="Overlay"></div>
+                <div class="text_section_one">
+                    <h1 class="Main_Heading">Профессиональный <span class="gradient-text">ремонт техники</span></h1>
+                    <p class="Description_Text">Качественный сервис с гарантией в Рубцовске. Ремонт любой сложности от опытных мастеров.</p>
+                    <div class="bitton_conteiner flex flex-wrap justify-center gap-4">
+                        <a href="#contact" class="Primary_Button1 bg-blue-500 hover:bg-orange-600 text-white font-medium px-6 py-3 rounded-lg shadow-sm transition transform hover:scale-105 flex items-center">
+                            <i class="fas fa-phone-alt mr-2"></i> Заказать звонок
+                        </a>
+                        <a href="#repair" class="Primary_Button2 text-black-500 hover:text-white font-medium px-6 py-3 rounded-lg shadow-sm transition transform hover:scale-105 flex items-center border border-blue-500 hover:bg-blue-500">
+                            <i class="fas fa-tools mr-2"></i> Наши услуги
+                        </a>
+                    </div>
+                </div>
+            </section>
+              
+                      <!-- Вторая секция с новым дизайном -->
+
+  <section class="hero-image section_one min-h-[50vh] md:min-h-[90vh]" 
+         style="background-image: url('Img/4v.jpg'); 
+                background-size: cover; 
+                background-position: center; 
+                background-attachment: fixed;">
+                <div class="absolute inset-0 bg-blue-900 bg-opacity-30"></div>
+        <div class="Overlay"></div>
+        <div class="text_section_one">
+            <h1 class="Main_Heading">Почему <span class="gradient-text">мы?</span></h1>
+            <p class="Description_Text">Мы предлагаем высококачественные услуги и индивидуальный подход к каждому клиенту.</p>
+            
+            <div class="flex flex-wrap justify-center gap-8 mt-12">
+                <div class="w-full md:w-1/2 xl:w-1/3">
+                    <div class="bg-white/20 backdrop-blur-lg p-8 rounded-lg shadow-md hover:shadow-lg transition transform hover:scale-105">
+                        <i class="fas fa-check-circle text-blue-200 text-4xl mb-6"></i>
+                        <h3 class="text-2xl font-bold text-white mb-4">Профессионализм</h3>
+                        <p class="text-lg text-gray-200">Наши сотрудники имеют большой опыт и высокую квалификацию.</p>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2 xl:w-1/3">
+                    <div class="bg-white/20 backdrop-blur-lg p-8 rounded-lg shadow-md hover:shadow-lg transition transform hover:scale-105">
+                        <i class="fas fa-clock text-blue-200 text-4xl mb-6"></i>
+                        <h3 class="text-2xl font-bold text-white mb-4">Оперативность</h3>
+                        <p class="text-lg text-gray-200">Мы выполняем работу быстро и качественно без лишних вопросов.</p>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2 xl:w-1/3">
+                    <div class="bg-white/20 backdrop-blur-lg p-8 rounded-lg shadow-md hover:shadow-lg transition transform hover:scale-105">
+                        <i class="fas fa-users text-blue-200 text-4xl mb-6"></i>
+                        <h3 class="text-2xl font-bold text-white mb-4">Индивидуальный подход</h3>
+                        <p class="text-lg text-gray-200">Мы подходим к каждому клиенту индивидуально.</p>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </section>
+
+<!-- Четвертая секция -->
+ <section class="hero-image section_one min-h-[50vh] md:min-h-[80vh]" 
+         style="background-image: url('Img/4v.jpg'); 
+                background-size: cover; 
+                background-position: center; 
+                background-attachment: fixed;">
+                <div class="absolute inset-0 bg-blue-900 bg-opacity-30"></div>
+        <div class="Overlay"></div>
+        <div class="text_section_one">
+            <h1 class="Main_Heading">Наши <span class="gradient-text">достижения</span></h1>
+            
+            <div class="flex flex-wrap justify-center gap-8 mt-12">
+                <div class="w-full md:w-1/4">
+                    <div class="text-center">
+                        <i class="fas fa-users text-blue-200 text-6xl mb-6"></i>
+                        <h3 class="text-4xl font-bold text-white">1000+</h3>
+                        <p class="text-lg text-gray-200">Довольных клиентов</p>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/4">
+                    <div class="text-center">
+                        <i class="fas fa-check-circle text-blue-200 text-6xl mb-6"></i>
+                        <h3 class="text-4xl font-bold text-white">5000+</h3>
+                        <p class="text-lg text-gray-200">Выполненных работ</p>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/4">
+                    <div class="text-center">
+                        <i class="fas fa-clock text-blue-200 text-6xl mb-6"></i>
+                        <h3 class="text-4xl font-bold text-white">10+</h3>
+                        <p class="text-lg text-gray-200">Лет опыта</p>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/4">
+                    <div class="text-center">
+                        <i class="fas fa-star text-blue-200 text-6xl mb-6"></i>
+                        <h3 class="text-4xl font-bold text-white">4,5/5</h3>
+                        <p class="text-lg text-gray-200">Средняя оценка</p>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </section>
+ <section class="hero-image section_one min-h-[50vh] md:min-h-[80vh]" 
+         style="background-image: url('Img/4v.jpg'); 
+                background-size: cover; 
+                background-position: center; 
+                background-attachment: fixed;">
+                <div class="absolute inset-0 bg-blue-900 bg-opacity-30"></div>
+    <div class="Overlay"></div>
+    <div class="text_section_one container mx-auto px-4 py-16">
+        <div class="text-center mb-16 mb-6">
+            <span class="text-blue-300 font-semibold">Отзывы</span>
+            <h1 class="Main_Heading">Что говорят <span class="gradient-text">наши клиенты</span></h1>
+            <p class="Description_Text max-w-2xl mx-auto">Мы гордимся качеством нашей работы и отзывами наших клиентов</p>
+        </div>
+      
+        <div class="testimonial-container relative">
+            <div class="testimonial-wrapper" id="testimonial-wrapper">
+                <!-- Пример отзывов -->
+                <div class="testimonial-slide">
+                    <div class="testimonial-card bg-white/20 backdrop-blur-lg">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-blue-100/30 text-blue-300 w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold mr-4">И</div>
+                            <div>
+                                <h4 class="font-semibold text-white">Иван Петров</h4>
+                                <div class="flex text-yellow-400">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-content">
+                            <p class="text-gray-200">"Отличный сервис! Починили телевизор за один день, хотя в другом сервисе сказали, что ремонт невозможен. Цены адекватные, мастера вежливые. Рекомендую!"</p>
+                        </div>
+                        <div class="mt-4 text-sm text-gray-300">12.07.2025</div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-slide">
+                    <div class="testimonial-card bg-white/20 backdrop-blur-lg">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-blue-100/30 text-blue-300 w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold mr-4">А</div>
+                            <div>
+                                <h4 class="font-semibold text-white">Алексей Иванов</h4>
+                                <div class="flex text-yellow-400">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-content">
+                            <p class="text-gray-200">"Очень доволен работой сервиса! Мастера приехали вовремя, быстро нашли и устранили неисправность. Цены прозрачные, без скрытых доплат. Рекомендую всем!"</p>
+                        </div>
+                        <div class="mt-4 text-sm text-gray-300">15.07.2025</div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-slide">
+                    <div class="testimonial-card bg-white/20 backdrop-blur-lg">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-blue-100/30 text-blue-300 w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold mr-4">О</div>
+                            <div>
+                                <h4 class="font-semibold text-white">Ольга Смирнова</h4>
+                                <div class="flex text-yellow-400">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-content">
+                            <p class="text-gray-200">"Пришла с неработающей стиральной машиной. Диагностировали быстро, назвали точную цену. Починили за два дня, дали гарантию. Очень довольна сервисом и отношением персонала."</p>
+                        </div>
+                        <div class="mt-4 text-sm text-gray-300">3.05.2025</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Кнопки навигации -->
+            <button id="prev-btn" class="hidden" aria-label="Предыдущий отзыв">
+                <i class="fas fa-chevron-left text-white text-lg"></i>
+            </button>
+            <button id="next-btn" class="hidden" aria-label="Следующий отзыв">
+                <i class="fas fa-chevron-right text-white text-lg"></i>
+            </button>
+        </div>
+        
+        <div class="mt-12 text-center">
+            
+        </div>
+    </div>
+</section>
+
+<!-- Модальное окно (остается без изменений) -->
+<div id="modal" class="hidden" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div>
+        <div class="flex justify-between items-center mb-4">
+            <h3 id="modal-title" class="text-xl font-bold text-gray-800">Ваш отзыв</h3>
+            <button id="close-modal" aria-label="Закрыть окно" class="text-gray-500 hover:text-gray-700">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <form id="review-form">
+            <div class="mb-4">
+                <label for="name" class="block text-gray-700 mb-2">Ваше имя</label>
+                <input type="text" id="name" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+            </div>
+            
+            <div class="mb-4">
+                <label class="block text-gray-700 mb-2">Оценка</label>
+                <div class="flex space-x-1" id="rating" role="radiogroup" aria-label="Оценка">
+                    <i class="far fa-star text-2xl cursor-pointer" data-value="1" role="radio" aria-checked="false" tabindex="0"></i>
+                    <i class="far fa-star text-2xl cursor-pointer" data-value="2" role="radio" aria-checked="false" tabindex="-1"></i>
+                    <i class="far fa-star text-2xl cursor-pointer" data-value="3" role="radio" aria-checked="false" tabindex="-1"></i>
+                    <i class="far fa-star text-2xl cursor-pointer" data-value="4" role="radio" aria-checked="false" tabindex="-1"></i>
+                    <i class="far fa-star text-2xl cursor-pointer" data-value="5" role="radio" aria-checked="false" tabindex="-1"></i>
+                </div>
+                <input type="hidden" id="rating-value" value="0" required>
+            </div>
+            
+            <div class="mb-4">
+                <label for="review" class="block text-gray-700 mb-2">Отзыв</label>
+                <textarea id="review" rows="4" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
+            </div>
+            
+            <div class="flex justify-end space-x-3">
+                <button type="button" id="cancel" class="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-100">Отмена</button>
+                <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700" style="background-image: 
+          linear-gradient(to right, rgba(59, 130, 246, 0.7), rgba(37, 99, 235, 0.6));">Отправить</button>
+            </div>
+        </form>
+    </div>
+</div>
+    <script>
+      
+document.addEventListener('DOMContentLoaded', function() {
+    // Конфигурация Firebase (замените на ваши данные)
+    const firebaseConfig = {
+        apiKey: "YOUR_API_KEY",
+        authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+        databaseURL: "https://YOUR_PROJECT_ID.firebaseio.com",
+        projectId: "YOUR_PROJECT_ID",
+        storageBucket: "YOUR_PROJECT_ID.appspot.com",
+        messagingSenderId: "YOUR_SENDER_ID",
+        appId: "YOUR_APP_ID"
+    };
+
+    // Инициализация Firebase
+    firebase.initializeApp(firebaseConfig);
+    const database = firebase.database();
+
+    // Элементы DOM
+    const modal = document.getElementById('modal');
+    const openModalBtn = document.getElementById('open-modal');
+    const closeModalBtn = document.getElementById('close-modal');
+    const cancelBtn = document.getElementById('cancel');
+    const form = document.getElementById('review-form');
+    const wrapper = document.getElementById('testimonial-wrapper');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    const stars = document.querySelectorAll('#rating i');
+    const ratingValue = document.getElementById('rating-value');
+    
+    let currentIndex = 0;
+    let slides = document.querySelectorAll('.testimonial-slide');
+
+    // Функция для добавления отзыва в DOM (обновлена под новый дизайн)
+    function addReviewToDOM(review) {
+        const firstLetter = review.name.charAt(0).toUpperCase();
+        const starsHtml = Array(5).fill('').map((_, i) => 
+            i < review.rating ? '<i class="fas fa-star text-yellow-400"></i>' : '<i class="far fa-star"></i>'
+        ).join('');
+        
+        const newSlide = document.createElement('div');
+        newSlide.className = 'testimonial-slide';
+        newSlide.innerHTML = `
+            <div class="testimonial-card bg-white/20 backdrop-blur-lg">
+                <div class="flex items-center mb-4">
+                    <div class="bg-blue-100/30 text-blue-300 w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold mr-4">${firstLetter}</div>
+                    <div>
+                        <h4 class="font-semibold text-white">${review.name}</h4>
+                        <div class="flex">
+                            ${starsHtml}
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-content">
+                    <p class="text-gray-200">"${review.text}"</p>
+                </div>
+                <div class="mt-4 text-sm text-gray-300">${review.date}</div>
+            </div>
+        `;
+        
+        wrapper.appendChild(newSlide);
+    }
+
+    // Управление рейтингом
+    function setRating(value) {
+        ratingValue.value = value;
+        stars.forEach((s, i) => {
+            if (i < value) {
+                s.classList.remove('far');
+                s.classList.add('fas', 'text-yellow-400');
+                s.setAttribute('aria-checked', 'true');
+                s.tabIndex = 0;
+            } else {
+                s.classList.remove('fas', 'text-yellow-400');
+                s.classList.add('far');
+                s.setAttribute('aria-checked', 'false');
+                s.tabIndex = -1;
+            }
+        });
+    }
+
+    // Карусель отзывов
+    function updateCarousel() {
+        slides = document.querySelectorAll('.testimonial-slide');
+        const slidesCount = slides.length;
+        const slidesPerView = getSlidesPerView();
+        
+        if (slidesCount > slidesPerView) {
+            prevBtn.classList.remove('hidden');
+            nextBtn.classList.remove('hidden');
+        } else {
+            prevBtn.classList.add('hidden');
+            nextBtn.classList.add('hidden');
+        }
+        
+        const maxIndex = Math.max(0, slidesCount - slidesPerView);
+        if (currentIndex > maxIndex) currentIndex = maxIndex;
+        
+        wrapper.style.transform = `translateX(-${currentIndex * (100 / slidesPerView)}%)`;
+    }
+    
+    function getSlidesPerView() {
+        if (window.innerWidth >= 1024) return 3;
+        if (window.innerWidth >= 768) return 2;
+        return 1;
+    }
+
+    // Загрузка отзывов из Firebase при старте
+    function loadReviews() {
+        database.ref('reviews').once('value')
+            .then((snapshot) => {
+                const reviews = snapshot.val();
+                if (reviews) {
+                    wrapper.innerHTML = ''; // Очищаем перед загрузкой
+                    Object.values(reviews).forEach(review => {
+                        addReviewToDOM(review);
+                    });
+                    updateCarousel();
+                }
+            })
+            .catch((error) => {
+                console.error("Ошибка загрузки отзывов:", error);
+            });
+    }
+
+    // Обработчики событий
+    openModalBtn.addEventListener('click', () => modal.classList.remove('hidden'));
+    closeModalBtn.addEventListener('click', () => modal.classList.add('hidden'));
+    cancelBtn.addEventListener('click', () => modal.classList.add('hidden'));
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) modal.classList.add('hidden');
+    });
+
+    stars.forEach((star, idx) => {
+        star.addEventListener('click', () => setRating(idx + 1));
+        star.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                setRating(idx + 1);
+            }
+            if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+                e.preventDefault();
+                let nextIdx = (idx + 1) % stars.length;
+                stars[nextIdx].focus();
+            }
+            if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                e.preventDefault();
+                let prevIdx = (idx - 1 + stars.length) % stars.length;
+                stars[prevIdx].focus();
+            }
+        });
+    });
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const name = document.getElementById('name').value.trim();
+        const rating = parseInt(ratingValue.value);
+        const reviewText = document.getElementById('review').value.trim();
+        
+        if (!name || !rating || !reviewText) {
+            alert('Пожалуйста, заполните все поля');
+            return;
+        }
+        
+        const date = new Date().toLocaleDateString('ru-RU');
+        const review = { name, rating, text: reviewText, date };
+        
+        // Сохраняем в Firebase
+        database.ref('reviews').push(review)
+            .then(() => {
+                addReviewToDOM(review);
+                form.reset();
+                setRating(0);
+                modal.classList.add('hidden');
+                updateCarousel();
+            })
+            .catch((error) => {
+                console.error("Ошибка сохранения:", error);
+                alert("Ошибка при сохранении отзыва");
+            });
+    });
+
+    prevBtn.addEventListener('click', () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateCarousel();
+        }
+    });
+    
+    nextBtn.addEventListener('click', () => {
+        const slidesPerView = getSlidesPerView();
+        if (currentIndex < slides.length - slidesPerView) {
+            currentIndex++;
+            updateCarousel();
+        }
+    });
+
+    window.addEventListener('resize', updateCarousel);
+
+    // Инициализация
+    setRating(0);
+    loadReviews();
+});
+    </script>
+</section>
+        </section>
+
+        <section id="repair" class="page">
+            <!-- Вторая секция -->
+             
+            <section class="section_two">
+                <div class="section_two_container">
+        <div class="section_two_text">
+            <span class="text-blue-600 font-semibold">Наши услуги</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mt-2 mb-4">Ремонт техники любой сложности</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">Мы ремонтируем все виды бытовой и цифровой техники с использованием оригинальных запчастей и современного оборудования.</p>
+        </div>
+          
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Service Card 1 -->
+            <div class="service-card bg-white rounded-xl overflow-hidden border border-gray-900 shadow-sm hover:shadow-md transition-shadow duration-300">
+                <div class="h-60 bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center">
+                    <i class="fas fa-tv text-7xl text-white"></i>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Ремонт телевизоров</h3>
+                    <p class="text-gray-600 mb-4">Диагностика и ремонт ЖК, LED и плазменных телевизоров всех марок. Замена матриц, блоков питания, ремонт подсветки.</p>
+                    <ul class="space-y-2 mb-5">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                            <span>Диагностика бесплатно</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                            <span>Гарантия до 2 лет</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                            <span>Выезд мастера</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="text-blue-600 font-medium hover:text-blue-800 transition flex items-center">
+                        Заказать ремонт <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Service Card 2 -->
+            <div class="service-card bg-white rounded-xl overflow-hidden border border-gray-900 shadow-sm hover:shadow-md transition-shadow duration-300">
+                <div class="h-60 bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center">
+                    <i class="fas fa-blender text-7xl text-white"></i>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Ремонт бытовой техники</h3>
+                    <p class="text-gray-600 mb-4">Чиним холодильники, стиральные машины, микроволновки, пылесосы, утюги и другую бытовую технику.</p>
+                    <ul class="space-y-2 mb-5">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                            <span>Оригинальные запчасти</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                            <span>Ремонт в день обращения</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                            <span>Гарантия 1 год</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="text-blue-600 font-medium hover:text-blue-800 transition flex items-center">
+                        Заказать ремонт <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Service Card 3 -->
+            <div class="service-card bg-white rounded-xl overflow-hidden border border-gray-900 shadow-sm hover:shadow-md transition-shadow duration-300">
+                <div class="h-60 bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center">
+                    <i class="fas fa-tools text-7xl text-white"></i>
+                </div>
+                <div class="p-6">   
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Ремонт электроинструмента</h3>
+                    <p class="text-gray-600 mb-4">Восстанавливаем дрели, перфораторы, болгарки, шуруповерты, лобзики и другой электроинструмент.</p>
+                    <ul class="space-y-2 mb-5">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                            <span>Ремонт двигателей</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                            <span>Замена щеток</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                            <span>Ремонт аккумуляторов</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="text-blue-600 font-medium hover:text-blue-800 transition flex items-center">
+                        Заказать ремонт <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Service Card 4 -->
+            <div class="service-card bg-white rounded-xl overflow-hidden border border-gray-900 shadow-sm hover:shadow-md transition-shadow duration-300">
+                <div class="h-60 bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center">
+                    <i class="fas fa-laptop text-7xl text-white"></i>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Ремонт компьютеров и ноутбуков</h3>
+                    <p class="text-gray-600 mb-4">Диагностика и ремонт ПК, ноутбуков, моноблоков. Чистка, замена термопасты, ремонт материнских плат.</p>
+                    <ul class="space-y-2 mb-5">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                            <span>Восстановление данных</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                            <span>Апгрейд системы</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                            <span>Установка ПО</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="text-blue-600 font-medium hover:text-blue-800 transition flex items-center">
+                        Заказать ремонт <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="service-card bg-white rounded-xl overflow-hidden border border-gray-900 shadow-sm hover:shadow-md transition-shadow duration-300">
+    <div class="h-60 bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center">
+        <i class="fas fa-tv text-7xl text-white"></i>
+    </div>
+    <div class="p-6">
+        <h3 class="text-xl font-semibold mb-3 text-gray-800">Ремонт ТВ-приставок</h3>
+        <p class="text-gray-600 mb-4">Ремонт цифровых (DVB-T2, IPTV) и спутниковых (Триколор, НТВ+) приставок. Замена блоков питания, ремонт плат, перепрошивка.</p>
+        <ul class="space-y-2 mb-5">
+            <li class="flex items-center">
+                <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                <span>Настройка каналов</span>
+            </li>
+            <li class="flex items-center">
+                <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                <span>Ремонт пультов ДУ</span>
+            </li>
+            <li class="flex items-center">
+                <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                <span>Гарантия 6 месяцев</span>
+            </li>
+        </ul>
+        <a href="#contact" class="text-blue-600 font-medium hover:text-blue-800 transition flex items-center">
+            Заказать ремонт <i class="fas fa-arrow-right ml-2"></i>
+        </a>
+    </div>
+</div>
+            
+            <!-- Service Card 6 -->
+            <div class="service-card bg-white rounded-xl overflow-hidden border border-gray-900 shadow-sm hover:shadow-md transition-shadow duration-300">
+                <div class="h-60 bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center">
+                    <i class="fas fa-weight text-7xl text-white"></i>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Ремонт электронных весов</h3>
+                    <p class="text-gray-600 mb-4">Калибровка, замена тензодатчиков, ремонт дисплеев, восстановление точности измерений.</p>
+                    <ul class="space-y-2 mb-5">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                            <span>Ремонт промышленных весов</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                            <span>Кухонных весов</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                            <span>Торговых весов</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="text-blue-600 font-medium hover:text-blue-800 transition flex items-center">
+                        Заказать ремонт <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+            <!-- 5. Ремонт оргтехники -->
+<div class="service-card bg-white rounded-xl overflow-hidden border border-gray-900 shadow-sm hover:shadow-md transition-shadow duration-300">
+    <div class="h-60 bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center">
+        <i class="fas fa-print text-7xl text-white"></i>
+    </div>
+    <div class="p-6">
+        <h3 class="text-xl font-semibold mb-3 text-gray-800">Ремонт оргтехники</h3>
+        <p class="text-gray-600 mb-4">Ремонт принтеров, МФУ, сканеров, копиров. Заправка картриджей, восстановление печатающих головок.</p>
+        <ul class="space-y-2 mb-5">
+            <li class="flex items-center">
+                <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                <span>Вызов курьера</span>
+            </li>
+            <li class="flex items-center">
+                <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                <span>Оригинальные расходники</span>
+            </li>
+            <li class="flex items-center">
+                <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                <span>Гарантия 6 месяцев</span>
+            </li>
+        </ul>
+        <a href="#contact" class="text-blue-600 font-medium hover:text-blue-800 transition flex items-center">
+            Заказать ремонт <i class="fas fa-arrow-right ml-2"></i>
+        </a>
+    </div>
+</div>
+<!-- 11. Ремонт кухонной техники -->
+<div class="service-card bg-white rounded-xl overflow-hidden border border-gray-900 shadow-sm hover:shadow-md transition-shadow duration-300">
+    <div class="h-60 bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center">
+        <i class="fas fa-utensils text-7xl text-white"></i>
+    </div>
+    <div class="p-6">
+        <h3 class="text-xl font-semibold mb-3 text-gray-800">Ремонт кухонной техники</h3>
+        <p class="text-gray-600 mb-4">Чиним мультиварки, блендеры, мясорубки, кофеварки, кухонные комбайны и другую технику для кухни.</p>
+        <ul class="space-y-2 mb-5">
+            <li class="flex items-center">
+                <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                <span>Ремонт в день обращения</span>
+            </li>
+            <li class="flex items-center">
+                <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                <span>Оригинальные запчасти</span>
+            </li>
+            <li class="flex items-center">
+                <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                <span>Гарантия 3 месяца</span>
+            </li>
+        </ul>
+        <a href="#contact" class="text-blue-600 font-medium hover:text-blue-800 transition flex items-center">
+            Заказать ремонт <i class="fas fa-arrow-right ml-2"></i>
+        </a>
+    </div>
+</div>
+<div class="service-card bg-white rounded-xl overflow-hidden border border-gray-900 shadow-sm hover:shadow-md transition-shadow duration-300">
+    <div class="h-60 bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center">
+        <i class="fas fa-car text-7xl text-white"></i>
+    </div>
+    <div class="p-6">
+        <h3 class="text-xl font-semibold mb-3 text-gray-800">Ремонт автосигнализаций</h3>
+        <p class="text-gray-600 mb-4">Диагностика и ремонт автомобильных сигнализаций, иммобилайзеров, брелоков. Настройка, перепрограммирование, восстановление работы.</p>
+        <ul class="space-y-2 mb-5">
+            <li class="flex items-center">
+                <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                <span>Ремонт брелоков</span>
+            </li>
+            <li class="flex items-center">
+                <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                <span>Настройка автозапуска</span>
+            </li>
+            <li class="flex items-center">
+                <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                <span>Гарантия 1 год</span>
+            </li>
+        </ul>
+        <a href="#contact" class="text-blue-600 font-medium hover:text-blue-800 transition flex items-center">
+            Заказать ремонт <i class="fas fa-arrow-right ml-2"></i>
+        </a>
+    </div>
+</div>
+
+        </div>
+    </div>
+
+<!-- Модальное окно для цен -->
+<div id="priceModal" class="fixed inset-0 z-50 hidden overflow-y-auto">
+    <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+        <!-- Фон -->
+        <div class="fixed inset-0 transition-opacity" aria-hidden="true">
+            <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+        </div>
+        
+        <!-- Контент модального окна -->
+        <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl sm:w-full">
+            <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                <h3 id="modalTitle" class="text-2xl font-bold text-gray-800 mb-4"></h3>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-blue-600 text-white">
+                            <tr>
+                                <th class="px-4 py-3 text-left text-sm font-medium">Услуга</th>
+                                <th class="px-4 py-3 text-left text-sm font-medium">Описание</th>
+                                <th class="px-4 py-3 text-right text-sm font-medium">Цена от</th>
+                            </tr>
+                        </thead>
+                        <tbody id="priceTableBody" class="bg-white divide-y divide-gray-200">
+                            <!-- Сюда будут вставляться строки с ценами -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                <button type="button" class="closeModal mt-3 w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none transition duration-300 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
+    Закрыть
+</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+// Данные для прейскуранта
+const priceData = {
+    'Ремонт телевизоров': [
+        { service: 'Диагностика', description: 'Полная проверка телевизора', price: 'Бесплатно' },
+        { service: 'Ремонт блока питания', description: 'Замена компонентов блока', price: '1 200 ₽' },
+        { service: 'Замена матрицы', description: 'С учетом стоимости матрицы', price: '3 500 ₽' },
+        { service: 'Ремонт подсветки', description: 'Замена LED ленты', price: '2 800 ₽' },
+        { service: 'Замена разъемов', description: 'HDMI, USB, антенный', price: '900 ₽' },
+        { service: 'Прошивка TV', description: 'Обновление ПО телевизора', price: '1 500 ₽' }
+    ],
+    'Ремонт бытовой техники': [
+        { service: 'Диагностика', description: 'Определение неисправности', price: 'Бесплатно' },
+        { service: 'Ремонт стиральной машины', description: 'Замена подшипников, ремонт электроники', price: '2 000 ₽' },
+        { service: 'Замена ТЭНа', description: 'В стиральной машине', price: '1 500 ₽' },
+        { service: 'Ремонт холодильника', description: 'Устранение утечки, замена компрессора', price: '3 500 ₽' },
+        { service: 'Ремонт микроволновки', description: 'Замена магнетрона, ремонт электроники', price: '1 800 ₽' },
+        { service: 'Чистка пылесоса', description: 'С заменой фильтров', price: '1 200 ₽' }
+    ],
+    'Ремонт электроинструмента': [
+        { service: 'Диагностика', description: 'Проверка инструмента', price: 'Бесплатно' },
+        { service: 'Ремонт двигателя', description: 'Разборка, чистка, замена щеток', price: '1 800 ₽' },
+        { service: 'Замена редуктора', description: 'В дрелях, шуруповертах', price: '2 500 ₽' },
+        { service: 'Ремонт кнопки включения', description: 'Чистка или замена', price: '1 200 ₽' },
+        { service: 'Замена аккумулятора', description: 'С учетом стоимости аккумулятора', price: '2 000 ₽' },
+        { service: 'Ремонт зарядного устройства', description: 'Замена компонентов', price: '1 500 ₽' }
+    ],
+    'Ремонт компьютеров и ноутбуков': [
+        { service: 'Диагностика', description: 'Аппаратная и программная', price: 'Бесплатно' },
+        { service: 'Чистка с заменой термопасты', description: 'Полная разборка', price: '1 500 ₽' },
+        { service: 'Замена жесткого диска', description: 'Без стоимости диска', price: '800 ₽' },
+        { service: 'Ремонт материнской платы', description: 'Замена компонентов', price: '2 500 ₽' },
+        { service: 'Замена матрицы ноутбука', description: 'С учетом стоимости матрицы', price: '3 000 ₽' },
+        { service: 'Установка/настройка ОС', description: 'Windows/Linux', price: '1 200 ₽' }
+    ],
+    'Ремонт ТВ-приставок': [
+        { service: 'Диагностика', description: 'Проверка работы приставки', price: 'Бесплатно' },
+        { service: 'Ремонт блока питания', description: 'Замена компонентов', price: '1 000 ₽' },
+        { service: 'Прошивка приставки', description: 'Восстановление ПО', price: '1 500 ₽' },
+        { service: 'Замена разъемов', description: 'HDMI, USB, антенный', price: '900 ₽' },
+        { service: 'Ремонт пульта ДУ', description: 'Чистка или замена кнопок', price: '600 ₽' },
+        { service: 'Настройка каналов', description: 'Ручная настройка ТВ', price: '800 ₽' }
+    ],
+    'Ремонт электронных весов': [
+        { service: 'Диагностика', description: 'Проверка точности измерений', price: 'Бесплатно' },
+        { service: 'Калибровка весов', description: 'Настройка точности', price: '1 200 ₽' },
+        { service: 'Замена тензодатчика', description: 'С учетом стоимости датчика', price: '2 000 ₽' },
+        { service: 'Ремонт дисплея', description: 'Замена экрана', price: '1 800 ₽' },
+        { service: 'Ремонт платы управления', description: 'Замена компонентов', price: '2 500 ₽' },
+        { service: 'Замена аккумулятора', description: 'В портативных весах', price: '1 000 ₽' }
+    ],
+    'Ремонт оргтехники': [
+        { service: 'Диагностика', description: 'Проверка устройства', price: 'Бесплатно' },
+        { service: 'Заправка картриджа', description: 'Черно-белый принтер', price: '800 ₽' },
+        { service: 'Замена фотобарабана', description: 'В лазерных принтерах', price: '2 000 ₽' },
+        { service: 'Ремонт печатающей головки', description: 'Чистка или замена', price: '1 800 ₽' },
+        { service: 'Ремонт сканера', description: 'Восстановление работы', price: '2 200 ₽' },
+        { service: 'Настройка МФУ', description: 'Подключение, настройка', price: '1 000 ₽' }
+    ],
+    'Ремонт кухонной техники': [
+        { service: 'Диагностика', description: 'Проверка устройства', price: 'Бесплатно' },
+        { service: 'Ремонт мультиварки', description: 'Замена датчиков, электроники', price: '1 800 ₽' },
+        { service: 'Замена ТЭНа в чайнике', description: 'С учетом стоимости ТЭНа', price: '1 200 ₽' },
+        { service: 'Ремонт блендера', description: 'Замена двигателя, кнопок', price: '1 500 ₽' },
+        { service: 'Чистка кофемашины', description: 'С заменой уплотнителей', price: '2 000 ₽' },
+        { service: 'Ремонт мясорубки', description: 'Замена шестерен, двигателя', price: '1 700 ₽' }
+    ],
+    'Ремонт автосигнализаций': [
+        { service: 'Диагностика', description: 'Проверка системы', price: 'Бесплатно' },
+        { service: 'Ремонт брелока', description: 'Чистка, замена кнопок', price: '1 000 ₽' },
+        { service: 'Перепрограммирование', description: 'Настройка системы', price: '1 500 ₽' },
+        { service: 'Ремонт центрального блока', description: 'Замена компонентов', price: '2 500 ₽' },
+        { service: 'Установка автозапуска', description: 'Настройка функции', price: '3 000 ₽' },
+        { service: 'Замена антенны', description: 'Улучшение сигнала', price: '1 800 ₽' }
+    ]
+};
+
+// Открытие модального окна
+document.querySelectorAll('.service-card').forEach(card => {
+    card.addEventListener('click', function(e) {
+        // Проверяем, что клик не по ссылке "Заказать ремонт"
+        if (!e.target.closest('a')) {
+            const title = this.querySelector('h3').textContent;
+            showPriceModal(title);
+        }
+    });
+});
+
+// Функция показа модального окна
+function showPriceModal(title) {
+    const modal = document.getElementById('priceModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const tableBody = document.getElementById('priceTableBody');
+    
+    // Заполняем заголовок
+    modalTitle.textContent = `Прайс-лист: ${title}`;
+    
+    // Очищаем таблицу
+    tableBody.innerHTML = '';
+    
+    // Заполняем таблицу данными
+    priceData[title].forEach(item => {
+        const row = document.createElement('tr');
+        row.className = 'hover:bg-gray-50 transition';
+        row.innerHTML = `
+            <td class="px-4 py-3 whitespace-nowrap font-medium text-gray-900">${item.service}</td>
+            <td class="px-4 py-3 text-gray-600">${item.description}</td>
+            <td class="px-4 py-3 text-right whitespace-nowrap text-gray-900">${item.price}</td>
+        `;
+        tableBody.appendChild(row);
+    });
+    
+    // Показываем модальное окно
+    modal.classList.remove('hidden');
+}
+
+// Закрытие модального окна
+document.querySelector('.closeModal').addEventListener('click', function() {
+    document.getElementById('priceModal').classList.add('hidden');
+});
+
+// Закрытие по клику на фон
+document.querySelector('#priceModal > div').addEventListener('click', function(e) {
+    if (e.target === this) {
+        document.getElementById('priceModal').classList.add('hidden');
+    }
+});
+</script>
+</section>
+</section>
+<style>
+    /* Стили для секции "Услуги" */
+    
+    
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1.5rem;
+        justify-items: center;
+    }
+    
+    .service-card {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    /* Стили для секции "Магазин" */
+   
+    
+    .product-card {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+</style>
+
+        <section id="shop" class="page">
+            <!-- Секция магазина -->
+           <div class="container mx-auto px-4">
+        <div class="text-center mb-16 mb-8">
+            <span class="text-blue-600 font-semibold">Наш магазин</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mt-2 mb-4">Запчасти и комплектующие</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">Мы предлагаем широкий ассортимент запчастей и комплектующих для ремонта техники</p>
+        </div>
+        
+        <!-- Tabs -->
+        <div class="mb-8 border-b border-gray-200">
+            <div class="flex flex-wrap -mb-px">
+                <button class="tab-btn active mr-4 py-3 px-4 font-medium text-blue-600 border-b-2 border-blue-600" data-tab="radio">
+                    Радиодетали
+                </button>
+                <button class="tab-btn mr-4 py-3 px-4 font-medium text-gray-500 hover:text-gray-600 border-b-2 border-transparent hover:border-gray-300" data-tab="appliance">
+                    Запчасти бытовой техники
+                </button>
+                <button class="tab-btn mr-4 py-3 px-4 font-medium text-gray-500 hover:text-gray-600 border-b-2 border-transparent hover:border-gray-300" data-tab="tools">
+                    Запчасти электроинструмента
+                </button>
+                <button class="tab-btn mr-4 py-3 px-4 font-medium text-gray-500 hover:text-gray-600 border-b-2 border-transparent hover:border-gray-300" data-tab="power">
+                    Источники питания
+                </button>
+                <button class="tab-btn py-3 px-4 font-medium text-gray-500 hover:text-gray-600 border-b-2 border-transparent hover:border-gray-300" data-tab="remotes">
+                    Пульты ДУ
+                </button>
+            </div>
+        </div>
+        
+        <!-- Tab Contents -->
+        <!-- Радиодетали -->
+        <div id="radio" class="tab-content active">
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Первые 4 видимые карточки -->
+                <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900">
+                    <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                        <i class="fas fa-microchip text-5xl text-blue-500"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Микросхемы</h3>
+                    <p class="text-sm text-gray-600 mt-1 mb-3">Широкий ассортимент микросхем для ремонта</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-gray-800">от 50 ₽</span>
+                    </div>
+                </div>
+                
+                <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900">
+                    <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                        <i class="fas fa-bolt text-5xl text-blue-500"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Конденсаторы</h3>
+                    <p class="text-sm text-gray-600 mt-1 mb-3">Ассортимент различных типов и наминалов</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-gray-800">от 20 ₽</span>
+                    </div>
+                </div>
+                
+                <!-- Резисторы (исправленная иконка) -->
+<div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900">
+    <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+        <i class="fas fa-bolt text-5xl text-blue-500"></i> <!-- Заменили fa-resistor на fa-bolt -->
+    </div>
+    <h3 class="font-semibold text-gray-800">Резисторы</h3>
+    <p class="text-sm text-gray-600 mt-1 mb-3">Все мощности и номиналы</p>
+    <div class="flex justify-between items-center">
+        <span class="font-bold text-gray-800">от 10 ₽</span>
+    </div>
+</div>
+                
+                <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900">
+                    <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                        <i class="fas fa-project-diagram text-5xl text-blue-500"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Транзисторы</h3>
+                    <p class="text-sm text-gray-600 mt-1 mb-3">Биполярные и полевые</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-gray-800">от 30 ₽</span>
+                    </div>
+                </div>
+                
+                <!-- Скрытые карточки (12 штук) -->
+                <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900 hidden more-products-radio">
+                    <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                        <i class="fas fa-microchip text-5xl text-blue-500"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Диоды</h3>
+                    <p class="text-sm text-gray-600 mt-1 mb-3">Различные типы диодов</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-gray-800">от 25 ₽</span>
+                    </div>
+                </div>
+                
+                <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900 hidden more-products-radio">
+                    <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                        <i class="fas fa-microchip text-5xl text-blue-500"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Тиристоры</h3>
+                    <p class="text-sm text-gray-600 mt-1 mb-3">Для силовых схем</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-gray-800">от 80 ₽</span>
+                    </div>
+                </div>
+                
+                <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900 hidden more-products-radio">
+                    <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                        <i class="fas fa-microchip text-5xl text-blue-500"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Стабилитроны</h3>
+                    <p class="text-sm text-gray-600 mt-1 mb-3">Для стабилизации напряжения</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-gray-800">от 40 ₽</span>
+                    </div>
+                </div>
+                
+                <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900 hidden more-products-radio">
+                    <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                        <i class="fas fa-lightbulb text-5xl text-blue-500"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Светодиоды</h3>
+                    <p class="text-sm text-gray-600 mt-1 mb-3">Разных цветов и размеров</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-gray-800">от 15 ₽</span>
+                    </div>
+                </div>
+                
+                <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900 hidden more-products-radio">
+                    <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                        <i class="fas fa-ellipsis-h text-5xl text-blue-500"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Дроссели</h3>
+                    <p class="text-sm text-gray-600 mt-1 mb-3">Различные индуктивности</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-gray-800">от 60 ₽</span>
+                    </div>
+                </div>
+                
+                <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900 hidden more-products-radio">
+                    <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                        <i class="fas fa-wave-square text-5xl text-blue-500"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Кварцевые резонаторы</h3>
+                    <p class="text-sm text-gray-600 mt-1 mb-3">Для генерации частоты</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-gray-800">от 70 ₽</span>
+                    </div>
+                </div>
+                
+                <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900 hidden more-products-radio">
+                    <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                        <i class="fas fa-plug text-5xl text-blue-500"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Разъемы</h3>
+                    <p class="text-sm text-gray-600 mt-1 mb-3">Различные типы коннекторов</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-gray-800">от 35 ₽</span>
+                    </div>
+                </div>
+                
+                <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900 hidden more-products-radio">
+                    <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                        <i class="fas fa-thermometer-half text-5xl text-blue-500"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Терморезисторы</h3>
+                    <p class="text-sm text-gray-600 mt-1 mb-3">Для измерения температуры</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-gray-800">от 90 ₽</span>
+                    </div>
+                </div>
+                
+                <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900 hidden more-products-radio">
+                    <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                        <i class="fas fa-magnet text-5xl text-blue-500"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Катушки индуктивности</h3>
+                    <p class="text-sm text-gray-600 mt-1 mb-3">Различные номиналы</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-gray-800">от 55 ₽</span>
+                    </div>
+                </div>
+                
+                <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900 hidden more-products-radio">
+                    <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                        <i class="fas fa-sliders-h text-5xl text-blue-500"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Переменные резисторы</h3>
+                    <p class="text-sm text-gray-600 mt-1 mb-3">Для регулировки параметров</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-gray-800">от 65 ₽</span>
+                    </div>
+                </div>
+                
+                <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900 hidden more-products-radio">
+                    <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                        <i class="fas fa-exchange-alt text-5xl text-blue-500"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Трансформаторы</h3>
+                    <p class="text-sm text-gray-600 mt-1 mb-3">Различные мощности</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-gray-800">от 120 ₽</span>
+                    </div>
+                </div>
+                
+                <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900 hidden more-products-radio">
+                    <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                        <i class="fas fa-bell text-5xl text-blue-500"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Зуммеры</h3>
+                    <p class="text-sm text-gray-600 mt-1 mb-3">Звуковые излучатели</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-gray-800">от 75 ₽</span>
+                    </div>
+                </div>
+                
+                <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900 hidden more-products-radio">
+                    <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                        <i class="fas fa-toggle-on text-5xl text-blue-500"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Реле</h3>
+                    <p class="text-sm text-gray-600 mt-1 mb-3">Различные типы и мощности</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-gray-800">от 110 ₽</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-10 text-center">
+                <button class="show-more-btn inline-block bg-white hover:bg-gray-100 border border-blue-600 text-blue-600 font-medium py-3 px-8 rounded-lg transition duration-300" data-category="radio">
+                    Показать все радиодетали (16)
+                </button>
+                <button class="hide-btn hidden inline-block bg-gray-200 hover:bg-gray-300 border border-gray-400 text-gray-700 font-medium py-3 px-8 rounded-lg transition duration-300 ml-4" data-category="radio">
+                    Скрыть
+                </button>
+            </div>
+        </div>
+        
+        <!-- Запчасти бытовой техники -->
+        <div id="appliance" class="tab-content">
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Первые 4 видимые карточки -->
+                <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900">
+                    <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                        <i class="fas fa-fan text-5xl text-blue-500"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Моторы</h3>
+                    <p class="text-sm text-gray-600 mt-1 mb-3">Для стиральных машин и холодильников</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-gray-800">от 1500 ₽</span>
+                    </div>
+                </div>
+                
+                <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900">
+                    <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                        <i class="fas fa-temperature-high text-5xl text-blue-500"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800">ТЭНы</h3>
+                    <p class="text-sm text-gray-600 mt-1 mb-3">Нагревательные элементы для техники</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-gray-800">от 500 ₽</span>
+                    </div>
+                </div>
+                
+                <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900">
+                    <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                        <i class="fas fa-door-open text-5xl text-blue-500"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Уплотнители</h3>
+                    <p class="text-sm text-gray-600 mt-1 mb-3">Для холодильников и стиральных машин</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-gray-800">от 800 ₽</span>
+                    </div>
+                </div>
+                
+                <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900">
+                    <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                        <i class="fas fa-plug text-5xl text-blue-500"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Шнуры питания</h3>
+                    <p class="text-sm text-gray-600 mt-1 mb-3">Различные модели и разъемы</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-gray-800">от 200 ₽</span>
+                    </div>
+                </div>
+                
+                <!-- Скрытые карточки (12 штук) -->
+                <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900 hidden more-products-appliance">
+                    <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                        <i class="fas fa-filter text-5xl text-blue-500"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Фильтры</h3>
+                    <p class="text-sm text-gray-600 mt-1 mb-3">Для воды и воздуха</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-gray-800">от 400 ₽</span>
+                    </div>
+                </div>
+                
+                <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900 hidden more-products-appliance">
+                    <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                        <i class="fas fa-pump-soap text-5xl text-blue-500"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Помпы</h3>
+                    <p class="text-sm text-gray-600 mt-1 mb-3">Для стиральных и посудомоечных машин</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-gray-800">от 900 ₽</span>
+                    </div>
+                </div>
+                
+                <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900 hidden more-products-appliance">
+                    <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                        <i class="fas fa-thermometer-three-quarters text-5xl text-blue-500"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Термостаты</h3>
+                    <p class="text-sm text-gray-600 mt-1 mb-3">Для контроля температуры</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-gray-800">от 600 ₽</span>
+                    </div>
+                </div>
+                
+                <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900 hidden more-products-appliance">
+                    <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                        <i class="fas fa-lightbulb text-5xl text-blue-500"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Лампы подсветки</h3>
+                    <p class="text-sm text-gray-600 mt-1 mb-3">Для холодильников и микроволновок</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-gray-800">от 150 ₽</span>
+                    </div>
+                </div>
+                
+                <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900 hidden more-products-appliance">
+                    <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                        <i class="fas fa-tachometer-alt text-5xl text-blue-500"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Датчики</h3>
+                    <p class="text-sm text-gray-600 mt-1 mb-3">Различные типы датчиков</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-gray-800">от 350 ₽</span>
+                    </div>
+                </div>
+                
+                <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900 hidden more-products-appliance">
+                    <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                        <i class="fas fa-power-off text-5xl text-blue-500"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Выключатели</h3>
+                    <p class="text-sm text-gray-600 mt-1 mb-3">Кнопочные и поворотные</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-gray-800">от 250 ₽</span>
+                    </div>
+                </div>
+                
+                <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900 hidden more-products-appliance">
+                    <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                        <i class="fas fa-drum text-5xl text-blue-500"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Барабаны</h3>
+                    <p class="text-sm text-gray-600 mt-1 mb-3">Для стиральных машин</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-gray-800">от 2000 ₽</span>
+                    </div>
+                </div>
+                
+                <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900 hidden more-products-appliance">
+                    <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                        <i class="fas fa-faucet text-5xl text-blue-500"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Клапаны</h3>
+                    <p class="text-sm text-gray-600 mt-1 mb-3">Впускные и выпускные</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-gray-800">от 450 ₽</span>
+                    </div>
+                </div>
+                
+                <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900 hidden more-products-appliance">
+                    <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                        <i class="fas fa-compress-arrows-alt text-5xl text-blue-500"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Компрессоры</h3>
+                    <p class="text-sm text-gray-600 mt-1 mb-3">Для холодильников</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-gray-800">от 2500 ₽</span>
+                    </div>
+                </div>
+                
+                <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900 hidden more-products-appliance">
+                    <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                        <i class="fas fa-wind text-5xl text-blue-500"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Вентиляторы</h3>
+                    <p class="text-sm text-gray-600 mt-1 mb-3">Охлаждения и обдува</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-gray-800">от 700 ₽</span>
+                    </div>
+                </div>
+                
+                <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900 hidden more-products-appliance">
+                    <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                        <i class="fas fa-box-open text-5xl text-blue-500"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Дверные петли</h3>
+                    <p class="text-sm text-gray-600 mt-1 mb-3">Для холодильников и духовок</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-gray-800">от 300 ₽</span>
+                    </div>
+                </div>
+                
+                <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900 hidden more-products-appliance">
+                    <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                        <i class="fas fa-solar-panel text-5xl text-blue-500"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Панели управления</h3>
+                    <p class="text-sm text-gray-600 mt-1 mb-3">Для различных моделей</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-gray-800">от 1000 ₽</span>
+                    </div>
+                </div>
+                
+                <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900 hidden more-products-appliance">
+                    <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                        <i class="fas fa-fan text-5xl text-blue-500"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Крыльчатки</h3>
+                    <p class="text-sm text-gray-600 mt-1 mb-3">Для вентиляторов и вытяжек</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-gray-800">от 550 ₽</span>
+                    </div>
+                </div>
+                
+                <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900 hidden more-products-appliance">
+                    <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                        <i class="fas fa-water text-5xl text-blue-500"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Патрубки</h3>
+                    <p class="text-sm text-gray-600 mt-1 mb-3">Для воды и дренажа</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-gray-800">от 180 ₽</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-10 text-center">
+                <button class="show-more-btn inline-block bg-white hover:bg-gray-100 border border-blue-600 text-blue-600 font-medium py-3 px-8 rounded-lg transition duration-300" data-category="appliance">
+                    Показать все запчасти (16)
+                </button>
+                <button class="hide-btn hidden inline-block bg-gray-200 hover:bg-gray-300 border border-gray-400 text-gray-700 font-medium py-3 px-8 rounded-lg transition duration-300 ml-4" data-category="appliance">
+                    Скрыть
+                </button>
+            </div>
+        </div>
+          <!-- Запчасти электроинструмента -->
+        <div id="tools" class="tab-content">
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Первые 4 видимые карточки -->
+                <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900">
+                    <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                        <i class="fas fa-cog text-5xl text-blue-500"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Шестерни</h3>
+                    <p class="text-sm text-gray-600 mt-1 mb-3">Для электроинструмента</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-gray-800">от 300 ₽</span>
+                    </div>
+                </div>
+                
+                <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900">
+                    <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                        <i class="fas fa-bolt text-5xl text-blue-500"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Щетки</h3>
+                    <p class="text-sm text-gray-600 mt-1 mb-3">Графитовые для электроинструмента</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-gray-800">от 150 ₽</span>
+                    </div>
+                </div>
+                
+                <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900">
+                    <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                        <i class="fas fa-battery-full text-5xl text-blue-500"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Аккумуляторы</h3>
+                    <p class="text-sm text-gray-600 mt-1 mb-3">Для шуруповертов и другого инструмента</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-gray-800">от 1200 ₽</span>
+                    </div>
+                </div>
+                
+                <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900">
+                    <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                        <i class="fas fa-power-off text-5xl text-blue-500"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Выключатели</h3>
+                    <p class="text-sm text-gray-600 mt-1 mb-3">Кнопочные, ползунковые</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-gray-800">от 250 ₽</span>
+                    </div>
+                </div>
+                 <!-- Скрытые карточки (12 штук) -->
+                <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900 hidden more-products-appliance">
+                    <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                        <i class="fas fa-filter text-5xl text-blue-500"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Фильтры</h3>
+                    <p class="text-sm text-gray-600 mt-1 mb-3">Для воды и воздуха</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-gray-800">от 400 ₽</span>
+                    </div>
+                </div>
+                
+                <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900 hidden more-products-appliance">
+                    <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                        <i class="fas fa-pump-soap text-5xl text-blue-500"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Помпы</h3>
+                    <p class="text-sm text-gray-600 mt-1 mb-3">Для стиральных и посудомоечных машин</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-gray-800">от 900 ₽</span>
+                    </div>
+                </div>
+                
+                <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900 hidden more-products-appliance">
+                    <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                        <i class="fas fa-thermometer-three-quarters text-5xl text-blue-500"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Термостаты</h3>
+                    <p class="text-sm text-gray-600 mt-1 mb-3">Для контроля температуры</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-gray-800">от 600 ₽</span>
+                    </div>
+                </div>
+                
+                <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900 hidden more-products-appliance">
+                    <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                        <i class="fas fa-lightbulb text-5xl text-blue-500"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Лампы подсветки</h3>
+                    <p class="text-sm text-gray-600 mt-1 mb-3">Для холодильников и микроволновок</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-gray-800">от 150 ₽</span>
+                    </div>
+                </div>
+                
+                <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900 hidden more-products-appliance">
+                    <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                        <i class="fas fa-tachometer-alt text-5xl text-blue-500"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Датчики</h3>
+                    <p class="text-sm text-gray-600 mt-1 mb-3">Различные типы датчиков</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-gray-800">от 350 ₽</span>
+                    </div>
+                </div>
+                
+                <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900 hidden more-products-appliance">
+                    <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                        <i class="fas fa-power-off text-5xl text-blue-500"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Выключатели</h3>
+                    <p class="text-sm text-gray-600 mt-1 mb-3">Кнопочные и поворотные</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-gray-800">от 250 ₽</span>
+                    </div>
+                </div>
+                
+                <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900 hidden more-products-appliance">
+                    <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                        <i class="fas fa-drum text-5xl text-blue-500"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Барабаны</h3>
+                    <p class="text-sm text-gray-600 mt-1 mb-3">Для стиральных машин</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-gray-800">от 2000 ₽</span>
+                    </div>
+                </div>
+                
+                <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900 hidden more-products-appliance">
+                    <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                        <i class="fas fa-faucet text-5xl text-blue-500"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Клапаны</h3>
+                    <p class="text-sm text-gray-600 mt-1 mb-3">Впускные и выпускные</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-gray-800">от 450 ₽</span>
+                    </div>
+                </div>
+                
+                <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900 hidden more-products-appliance">
+                    <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                        <i class="fas fa-compress-arrows-alt text-5xl text-blue-500"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Компрессоры</h3>
+                    <p class="text-sm text-gray-600 mt-1 mb-3">Для холодильников</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-gray-800">от 2500 ₽</span>
+                    </div>
+                </div>
+                
+                <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900 hidden more-products-appliance">
+                    <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                        <i class="fas fa-wind text-5xl text-blue-500"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Вентиляторы</h3>
+                    <p class="text-sm text-gray-600 mt-1 mb-3">Охлаждения и обдува</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-gray-800">от 700 ₽</span>
+                    </div>
+                </div>
+                
+                <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900 hidden more-products-appliance">
+                    <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                        <i class="fas fa-box-open text-5xl text-blue-500"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Дверные петли</h3>
+                    <p class="text-sm text-gray-600 mt-1 mb-3">Для холодильников и духовок</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-gray-800">от 300 ₽</span>
+                    </div>
+                </div>
+                
+                <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900 hidden more-products-appliance">
+                    <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                        <i class="fas fa-solar-panel text-5xl text-blue-500"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Панели управления</h3>
+                    <p class="text-sm text-gray-600 mt-1 mb-3">Для различных моделей</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-gray-800">от 1000 ₽</span>
+                    </div>
+                </div>
+                
+                <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900 hidden more-products-appliance">
+                    <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                        <i class="fas fa-fan text-5xl text-blue-500"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Крыльчатки</h3>
+                    <p class="text-sm text-gray-600 mt-1 mb-3">Для вентиляторов и вытяжек</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-gray-800">от 550 ₽</span>
+                    </div>
+                </div>
+                
+                <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900 hidden more-products-appliance">
+                    <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                        <i class="fas fa-water text-5xl text-blue-500"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Патрубки</h3>
+                    <p class="text-sm text-gray-600 mt-1 mb-3">Для воды и дренажа</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-gray-800">от 180 ₽</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-10 text-center">
+                <button class="show-more-btn inline-block bg-white hover:bg-gray-100 border border-blue-600 text-blue-600 font-medium py-3 px-8 rounded-lg transition duration-300" data-category="appliance">
+                    Показать все запчасти (16)
+                </button>
+                <button class="hide-btn hidden inline-block bg-gray-200 hover:bg-gray-300 border border-gray-400 text-gray-700 font-medium py-3 px-8 rounded-lg transition duration-300 ml-4" data-category="appliance">
+                    Скрыть
+                </button>
+            </div>
+        </div>
+       <!-- Источники питания -->
+<div id="power" class="tab-content">
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <!-- Первые 4 видимые карточки -->
+        <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900">
+            <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                <i class="fas fa-battery-full text-5xl text-blue-500"></i>
+            </div>
+            <h3 class="font-semibold text-gray-800">Аккумуляторы</h3>
+            <p class="text-sm text-gray-600 mt-1 mb-3">Различных типов и емкостей</p>
+            <div class="flex justify-between items-center">
+                <span class="font-bold text-gray-800">от 350 ₽</span>
+            </div>
+        </div>
+        
+        <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900">
+            <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                <i class="fas fa-plug text-5xl text-blue-500"></i>
+            </div>
+            <h3 class="font-semibold text-gray-800">Блоки питания</h3>
+            <p class="text-sm text-gray-600 mt-1 mb-3">Разные напряжения 5V-24V</p>
+            <div class="flex justify-between items-center">
+                <span class="font-bold text-gray-800">от 450 ₽</span>
+            </div>
+        </div>
+        
+        <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900">
+            <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                <i class="fas fa-bolt text-5xl text-blue-500"></i>
+            </div>
+            <h3 class="font-semibold text-gray-800">ИБП</h3>
+            <p class="text-sm text-gray-600 mt-1 mb-3">Источники бесперебойного питания</p>
+            <div class="flex justify-between items-center">
+                <span class="font-bold text-gray-800">от 2500 ₽</span>
+            </div>
+        </div>
+        
+        <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900">
+            <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                <i class="fas fa-car-battery text-5xl text-blue-500"></i>
+            </div>
+            <h3 class="font-semibold text-gray-800">Батарейки</h3>
+            <p class="text-sm text-gray-600 mt-1 mb-3">Все типы: AA, AAA, CR2032 и др.</p>
+            <div class="flex justify-between items-center">
+                <span class="font-bold text-gray-800">от 50 ₽</span>
+            </div>
+        </div>
+        
+        <!-- Скрытые карточки (8 штук) -->
+        <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900 hidden more-products-power">
+            <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                <i class="fas fa-solar-panel text-5xl text-blue-500"></i>
+            </div>
+            <h3 class="font-semibold text-gray-800">Солнечные панели</h3>
+            <p class="text-sm text-gray-600 mt-1 mb-3">Портативные зарядные устройства</p>
+            <div class="flex justify-between items-center">
+                <span class="font-bold text-gray-800">от 1200 ₽</span>
+            </div>
+        </div>
+        
+        <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900 hidden more-products-power">
+            <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                <i class="fas fa-charging-station text-5xl text-blue-500"></i>
+            </div>
+            <h3 class="font-semibold text-gray-800">Зарядные устройства</h3>
+            <p class="text-sm text-gray-600 mt-1 mb-3">Для аккумуляторов и батарей</p>
+            <div class="flex justify-between items-center">
+                <span class="font-bold text-gray-800">от 600 ₽</span>
+            </div>
+        </div>
+        
+        <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900 hidden more-products-power">
+            <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                <i class="fas fa-power-off text-5xl text-blue-500"></i>
+            </div>
+            <h3 class="font-semibold text-gray-800">Стабилизаторы</h3>
+            <p class="text-sm text-gray-600 mt-1 mb-3">Напряжения 220V</p>
+            <div class="flex justify-between items-center">
+                <span class="font-bold text-gray-800">от 1500 ₽</span>
+            </div>
+        </div>
+        
+        <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900 hidden more-products-power">
+            <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                <i class="fas fa-car text-5xl text-blue-500"></i>
+            </div>
+            <h3 class="font-semibold text-gray-800">Автоинверторы</h3>
+            <p class="text-sm text-gray-600 mt-1 mb-3">Преобразователи 12V/220V</p>
+            <div class="flex justify-between items-center">
+                <span class="font-bold text-gray-800">от 1800 ₽</span>
+            </div>
+        </div>
+        
+        <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900 hidden more-products-power">
+            <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                <i class="fas fa-battery-empty text-5xl text-blue-500"></i>
+            </div>
+            <h3 class="font-semibold text-gray-800">Литиевые батареи</h3>
+            <p class="text-sm text-gray-600 mt-1 mb-3">Для ноутбуков и спецтехники</p>
+            <div class="flex justify-between items-center">
+                <span class="font-bold text-gray-800">от 2000 ₽</span>
+            </div>
+        </div>
+        
+        <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900 hidden more-products-power">
+            <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                <i class="fas fa-truck-pickup text-5xl text-blue-500"></i>
+            </div>
+            <h3 class="font-semibold text-gray-800">Портативные станции</h3>
+            <p class="text-sm text-gray-600 mt-1 mb-3">Мобильные источники питания</p>
+            <div class="flex justify-between items-center">
+                <span class="font-bold text-gray-800">от 5000 ₽</span>
+            </div>
+        </div>
+        
+        <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900 hidden more-products-power">
+            <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                <i class="fas fa-exchange-alt text-5xl text-blue-500"></i>
+            </div>
+            <h3 class="font-semibold text-gray-800">Преобразователи</h3>
+            <p class="text-sm text-gray-600 mt-1 mb-3">DC-DC преобразователи</p>
+            <div class="flex justify-between items-center">
+                <span class="font-bold text-gray-800">от 800 ₽</span>
+            </div>
+        </div>
+        
+        <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900 hidden more-products-power">
+            <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                <i class="fas fa-fire text-5xl text-blue-500"></i>
+            </div>
+            <h3 class="font-semibold text-gray-800">Генераторы</h3>
+            <p class="text-sm text-gray-600 mt-1 mb-3">Бензиновые и дизельные</p>
+            <div class="flex justify-between items-center">
+                <span class="font-bold text-gray-800">от 15000 ₽</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="mt-10 text-center">
+        <button class="show-more-btn inline-block bg-white hover:bg-gray-100 border border-blue-600 text-blue-600 font-medium py-3 px-8 rounded-lg transition duration-300" data-category="power">
+            Показать все (12)
+        </button>
+        <button class="hide-btn hidden inline-block bg-gray-200 hover:bg-gray-300 border border-gray-400 text-gray-700 font-medium py-3 px-8 rounded-lg transition duration-300 ml-4" data-category="power">
+            Скрыть
+        </button>
+    </div>
+</div>
+
+<!-- Пульты ДУ -->
+<div id="remotes" class="tab-content">
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <!-- Первые 4 видимые карточки -->
+        <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900">
+            <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                <i class="fas fa-tv text-5xl text-blue-500"></i>
+            </div>
+            <h3 class="font-semibold text-gray-800">Для телевизоров</h3>
+            <p class="text-sm text-gray-600 mt-1 mb-3">Все популярные бренды</p>
+            <div class="flex justify-between items-center">
+                <span class="font-bold text-gray-800">от 500 ₽</span>
+            </div>
+        </div>
+        
+        <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900">
+            <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                <i class="fas fa-wind text-5xl text-blue-500"></i>
+            </div>
+            <h3 class="font-semibold text-gray-800">Для кондиционеров</h3>
+            <p class="text-sm text-gray-600 mt-1 mb-3">Универсальные и оригинальные</p>
+            <div class="flex justify-between items-center">
+                <span class="font-bold text-gray-800">от 800 ₽</span>
+            </div>
+        </div>
+        
+        <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900">
+            <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                <i class="fas fa-gamepad text-5xl text-blue-500"></i>
+            </div>
+            <h3 class="font-semibold text-gray-800">Для приставок</h3>
+            <p class="text-sm text-gray-600 mt-1 mb-3">PlayStation, Xbox и другие</p>
+            <div class="flex justify-between items-center">
+                <span class="font-bold text-gray-800">от 1000 ₽</span>
+            </div>
+        </div>
+        
+        <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900">
+            <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                <i class="fas fa-home text-5xl text-blue-500"></i>
+            </div>
+            <h3 class="font-semibold text-gray-800">Универсальные</h3>
+            <p class="text-sm text-gray-600 mt-1 mb-3">Программируемые пульты</p>
+            <div class="flex justify-between items-center">
+                <span class="font-bold text-gray-800">от 600 ₽</span>
+            </div>
+        </div>
+        
+        <!-- Скрытые карточки (8 штук) -->
+        <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900 hidden more-products-remotes">
+            <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                <i class="fas fa-music text-5xl text-blue-500"></i>
+            </div>
+            <h3 class="font-semibold text-gray-800">Для аудио</h3>
+            <p class="text-sm text-gray-600 mt-1 mb-3">Ресиверы, музыкальные центры</p>
+            <div class="flex justify-between items-center">
+                <span class="font-bold text-gray-800">от 450 ₽</span>
+            </div>
+        </div>
+        
+        <!-- Для проекторов (исправленная иконка) -->
+<div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900 hidden more-products-remotes">
+    <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+        <i class="fas fa-film text-5xl text-blue-500"></i> <!-- Заменили fa-projector на fa-film -->
+    </div>
+    <h3 class="font-semibold text-gray-800">Для проекторов</h3>
+    <p class="text-sm text-gray-600 mt-1 mb-3">Разных моделей и брендов</p>
+    <div class="flex justify-between items-center">
+        <span class="font-bold text-gray-800">от 700 ₽</span>
+    </div>
+</div>
+        
+        <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900 hidden more-products-remotes">
+            <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                <i class="fas fa-lightbulb text-5xl text-blue-500"></i>
+            </div>
+            <h3 class="font-semibold text-gray-800">Для светильников</h3>
+            <p class="text-sm text-gray-600 mt-1 mb-3">Управление освещением</p>
+            <div class="flex justify-between items-center">
+                <span class="font-bold text-gray-800">от 350 ₽</span>
+            </div>
+        </div>
+        
+        <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900 hidden more-products-remotes">
+            <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                <i class="fas fa-blender text-5xl text-blue-500"></i>
+            </div>
+            <h3 class="font-semibold text-gray-800">Для техники</h3>
+            <p class="text-sm text-gray-600 mt-1 mb-3">Кухонные приборы</p>
+            <div class="flex justify-between items-center">
+                <span class="font-bold text-gray-800">от 400 ₽</span>
+            </div>
+        </div>
+        
+        <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900 hidden more-products-remotes">
+            <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                <i class="fas fa-car text-5xl text-blue-500"></i>
+            </div>
+            <h3 class="font-semibold text-gray-800">Автомобильные</h3>
+            <p class="text-sm text-gray-600 mt-1 mb-3">Для сигнализаций и шлагбаумов</p>
+            <div class="flex justify-between items-center">
+                <span class="font-bold text-gray-800">от 900 ₽</span>
+            </div>
+        </div>
+        
+        <!-- Для ворот (исправленная иконка) -->
+<div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900 hidden more-products-remotes">
+    <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+        <i class="fas fa-door-closed text-5xl text-blue-500"></i> <!-- Заменили fa-garage на fa-door-closed -->
+    </div>
+    <h3 class="font-semibold text-gray-800">Для ворот</h3>
+    <p class="text-sm text-gray-600 mt-1 mb-3">Гаражные и шлагбаумы</p>
+    <div class="flex justify-between items-center">
+        <span class="font-bold text-gray-800">от 1200 ₽</span>
+    </div>
+</div>
+        
+        <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900 hidden more-products-remotes">
+            <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                <i class="fas fa-fan text-5xl text-blue-500"></i>
+            </div>
+            <h3 class="font-semibold text-gray-800">Для вентиляции</h3>
+            <p class="text-sm text-gray-600 mt-1 mb-3">Вытяжки и системы вентиляции</p>
+            <div class="flex justify-between items-center">
+                <span class="font-bold text-gray-800">от 550 ₽</span>
+            </div>
+        </div>
+        
+        <div class="product-card bg-white p-4 rounded-lg shadow-sm border border-gray-900 hidden more-products-remotes">
+            <div class="h-40 bg-gray-100 mb-3 flex items-center justify-center rounded-lg">
+                <i class="fas fa-robot text-5xl text-blue-500"></i>
+            </div>
+            <h3 class="font-semibold text-gray-800">Сенсорные</h3>
+            <p class="text-sm text-gray-600 mt-1 mb-3">Смарт-пульты с экраном</p>
+            <div class="flex justify-between items-center">
+                <span class="font-bold text-gray-800">от 1500 ₽</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="mt-10 text-center">
+        <button class="show-more-btn inline-block bg-white hover:bg-gray-100 border border-blue-600 text-blue-600 font-medium py-3 px-8 rounded-lg transition duration-300" data-category="remotes">
+            Показать все (12)
+        </button>
+        <button class="hide-btn hidden inline-block bg-gray-200 hover:bg-gray-300 border border-gray-400 text-gray-700 font-medium py-3 px-8 rounded-lg transition duration-300 ml-4" data-category="remotes">
+            Скрыть
+        </button>
+    </div>
+</div>
+</section>
+
+<div class="h-1 bg-gray-400 w-full"></div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Функция для плавной прокрутки с отступом
+    const smoothScrollTo = (element, offset = 0) => {
+        const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({
+            top: elementPosition - offset,
+            behavior: 'smooth'
+        });
+    };
+
+    // Обработчик переключения вкладок
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            // Удаляем активный класс у всех кнопок
+            document.querySelectorAll('.tab-btn').forEach(button => {
+                button.classList.remove('active');
+                button.classList.remove('text-blue-600');
+                button.classList.remove('border-blue-600');
+                button.classList.add('text-gray-500');
+                button.classList.add('border-transparent');
+            });
+            
+            // Добавляем активный класс к текущей кнопке
+            this.classList.add('active');
+            this.classList.add('text-blue-600');
+            this.classList.add('border-blue-600');
+            this.classList.remove('text-gray-500');
+            this.classList.remove('border-transparent');
+            
+            // Скрываем все вкладки
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+                content.classList.add('hidden');
+            });
+            
+            // Показываем текущую вкладку
+            const category = this.dataset.tab;
+            document.getElementById(category).classList.add('active');
+            document.getElementById(category).classList.remove('hidden');
+        });
+    });
+
+    // Обработчик "Показать все"
+    document.querySelectorAll('.show-more-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const category = this.dataset.category;
+            
+            // Показываем скрытые карточки
+            document.querySelectorAll(`.more-products-${category}`).forEach(item => {
+                item.classList.remove('hidden');
+            });
+            
+            // Переключаем кнопки
+            this.classList.add('hidden');
+            this.nextElementSibling.classList.remove('hidden');
+        });
+    });
+
+    // Обработчик "Скрыть"
+    document.querySelectorAll('.hide-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const category = this.dataset.category;
+            const section = this.closest('.tab-content');
+            
+            // Скрываем дополнительные карточки
+            document.querySelectorAll(`.more-products-${category}`).forEach(item => {
+                item.classList.add('hidden');
+            });
+            
+            // Переключаем кнопки
+            this.classList.add('hidden');
+            this.previousElementSibling.classList.remove('hidden');
+            
+            // Плавная прокрутка к секции через 100мс
+            setTimeout(() => {
+                smoothScrollTo(section, 350);
+            }, 100);
+        });
+    });
+});
+
+</script>
+<!-- Стили для скрытых элементов -->
+<style>
+.hidden {
+    display: none;
+}
+.product-card {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.product-card.hidden {
+    opacity: 0;
+    transform: translateY(20px);
+}
+</style>
+</section>
+<style>
+    .mb-18 {
+    margin-bottom: -40px;
+}
+.mb-19 {
+    margin-bottom: 1.5rem;
+}
+
+
+</style>
+<!-- Секция "Реквизиты" -->
+<section id="requisites" class="page py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <!-- Заголовок с декоративным элементом -->
+         <div class="text-center mb-18">
+      <span class="text-blue-600 font-semibold text-lg block mb-3">Информация</span>
+      </div>
+        <div class="text-center mb-16 relative">
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 relative inline-block">
+                Реквизиты компании
+                <span class="absolute bottom-0 left-0 w-full h-1 bg-blue-500 transform scale-x-0 origin-left group-hover:scale-x-100 transition duration-500"></span>
+            </h2>
+            <div class="max-w-3xl mx-auto">
+                <p class="text-xl text-gray-600 leading-relaxed">
+                    Полная юридическая информация и контакты ООО "СИНТЕЗ"
+                </p>
+            </div>
+        </div>
+
+        <div class="max-w-6xl mx-auto p-8 md:p-12 lg:p-16">
+  <div class="bg-white rounded-2xl shadow-xl p-8 md:p-12 lg:p-16 border border-gray-300">
+    <div class="contact-grid md:grid-cols-2 gap-8 md:gap-12 lg:gap-16">
+      <!-- Юридические реквизиты -->
+      <div>
+        <div class="flex items-center mb-6">
+          <div class="bg-blue-100 text-blue-600 p-3 rounded-full mr-4">
+            <i class="fas fa-file-invoice text-2xl"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-800">Юридическая информация</h3>
+        </div>
+        <div class="space-y-4">
+          <div>
+            <h4 class="font-medium text-gray-500 mb-1">Полное наименование:</h4>
+            <p class="text-lg text-gray-800 font-medium">Общество с ограниченной ответственностью "СИНТЕЗ"</p>
+          </div>
+          <div>
+            <h4 class="font-medium text-gray-500 mb-1">Юридический адрес:</h4>
+            <p class="text-lg text-gray-800 font-medium">658200, Алтайский край, г. Рубцовск, ул. Комсомольская, 212</p>
+          </div>
+            
+             <div>
+              <h4 class="font-medium text-gray-500 mb-1">ИНН:</h4>
+              <p class="text-lg text-gray-800 font-medium">1234567890</p>
+            </div>
+            <div>
+              <h4 class="font-medium text-gray-500 mb-1">КПП:</h4>
+              <p class="text-lg text-gray-800 font-medium">123456789</p>
+            </div>
+          <div>
+            <h4 class="font-medium text-gray-500 mb-1">ОГРН:</h4>
+            <p class="text-lg text-gray-800 font-medium">1234567890123</p>
+          </div>
+          <div>
+            <h4 class="font-medium text-gray-500 mb-1">ОКПО:</h4>
+            <p class="text-lg text-gray-800 font-medium">12345678</p>
+          </div>
+           
+        </div>
+      </div>
+      <!-- Контактные данные -->
+<div>
+  <div class="flex items-center mb-6">
+    <div class="bg-blue-100 text-blue-600 p-3 rounded-full mr-4">
+      <i class="fas fa-address-card text-2xl"></i>
+    </div>
+    <h3 class="text-2xl font-bold text-gray-800">Контактные данные</h3>
+  </div>
+  <div class="space-y-4">
+    <div>
+      <h4 class="font-medium text-gray-500 mb-1">Телефоны:</h4>
+      <div class="space-y-2">
+        <p class="text-lg text-gray-800 font-medium flex items-center">
+          <i class="fas fa-phone-alt text-blue-500 mr-3"></i> (38557) 4-05-42
+        </p>
+        <p class="text-lg text-gray-800 font-medium flex items-center">
+          <i class="fas fa-phone-alt text-blue-500 mr-3"></i> (38557) 4-05-43
+        </p>
+        <p class="text-lg text-gray-800 font-medium flex items-center">
+          <i class="fas fa-mobile-alt text-blue-500 mr-3"></i> 8-963-518-18-98
+        </p>
+      </div>
+    </div>
+    <div>
+      <h4 class="font-medium text-gray-500 mb-1">Электронная почта:</h4>
+      <p class="text-lg text-gray-800 font-medium flex items-center">
+        <i class="fas fa-envelope text-blue-500 mr-3"></i> pochta@syntez-rub.ru
+      </p>
+    </div>
+    <div>
+      <h4 class="font-medium text-gray-500 mb-1">Режим работы:</h4>
+      <div class="text-lg text-gray-800 font-medium space-y-1">
+        <p class="flex items-center">
+          <i class="fas fa-clock text-blue-500 mr-3"></i> Пн-Пт: 9:00-18:00
+        </p>
+        <p class="flex items-center">
+          <i class="fas fa-clock text-blue-500 mr-3"></i> Сб-Вс: 9:00-16:00
+        </p>
+      </div>
+    </div>
+    
+    <div class="bg-white p-6 rounded-lg shadow-md border border-blue-200">
+      <div class="flex items-center mb-4">
+        <div class="bg-blue-100 text-blue-600 p-3 rounded-full mr-4">
+          <i class="fas fa-user-tie text-xl"></i>
+        </div>
+        <h4 class="text-xl font-bold text-gray-800">Директор</h4>
+      </div>
+      <p class="text-gray-700 text-lg">
+        <span class="font-medium">Сюсюкалов Андрей Викторович</span><br>
+        Телефон: 8-963-518-18-98<br>
+        Email: <a href="mailto:director@syntez-rub.ru" class="text-blue-600 hover:text-blue-800">director@syntez-rub.ru</a>
+      </p>
+    </div>
+  </div>
+</div>
+<style>
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 90px;
+    justify-items: center;
+}
+    .lg\:p-16 {
+        padding: 4rem;
+        margin-top: -50px;
+    }
+</style>
+    </div>
+  </div>
+</div>
+
+            
+           
+<!-- Кнопки навигации -->
+<div class="flex flex-wrap justify-center gap-6">
+  
+    
+  <a href="#contact" class="inline-flex items-center bg-white hover:bg-gray-100 text-blue-600 font-medium py-3 px-8 rounded-lg border border-blue-600 transition text-lg">
+    <i class="fas fa-envelope mr-2"></i> Связаться с нами
+  </a>
+</div>
+
+</section>
+    <!-- Секция "О компании" -->
+        <section id="about-company" class="page py-20 bg-white">
+    <div class="container mx-auto px-4">
+        <!-- Заголовок с декоративным элементом -->
+        <div class="text-center mb-16">
+             <div class="text-center mb-17">
+      <span class="text-blue-600 font-semibold text-lg block mb-3">Наша Компания</span>
+      </div>
+            <h2 class="text-4xl md:text-4xl font-bold text-gray-900 mb-6     relative inline-block">
+                ООО "СИНТЕЗ" - Сервисный центр
+                <span class="absolute bottom-0 left-0 w-full h-1 bg-blue-500 transform scale-x-0 origin-left group-hover:scale-x-100 transition duration-500"></span>
+            </h2>
+            <div class="max-w-3xl mx-auto mb-6">
+                <p class="text-xl text-gray-600 leading-relaxed mb-6">
+                    Более 15 лет мы предоставляем профессиональные услуги по ремонту техники в Рубцовске, сочетая 
+                    многолетний опыт с современными технологиями
+                </p>
+            </div>
+        </div>
+
+        <!-- Основной контент -->
+        <div class="max-w-6xl mx-auto">
+            <!-- Блок с историей компании -->
+            <div class="bg-white rounded-2xl shadow-xl mb-12 border border-gray-200">
+                <div class="flex flex-col md:flex-row gap-8 items-center">
+                    <div class="md:w-1/2">
+                        <img src="img/Com.png" alt="История компании" class="rounded-lg shadow-md w-full h-auto">
+                    </div>
+                    <div class="md:w-1/2">
+                        <h3 class="text-3xl font-bold text-gray-800 mb-6">Наша история</h3>
+                        <div class="space-y-4 text-gray-600 leading-relaxed">
+                            <p>
+                                Основанный в 2000 году, наш сервисный центр начинал с небольшой мастерской 
+                                по ремонту бытовой техники. Благодаря профессионализму наших мастеров и 
+                                внимательному отношению к клиентам, мы выросли в крупный сервисный центр, 
+                                обслуживающий весь Рубцовск и прилегающие районы.
+                            </p>
+                            <p>
+                                В 2015 году мы первыми в регионе внедрили систему электронной очереди и 
+                                онлайн-записи, что значительно сократило время ожидания для наших клиентов.
+                            </p>
+                            <p>
+                                Сегодня наш центр оснащен современным диагностическим оборудованием 
+                                и имеет склад оригинальных запчастей для оперативного ремонта.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Блок с миссией -->
+            <div class="bg-gradient-to-r from-blue-50 to-blue-100 rounded-2xl shadow-xl p-10 mb-12 border border-blue-200">
+                <h3 class="text-3xl font-bold text-gray-800 mb-8 text-center">Наша миссия</h3>
+                <div class="max-w-4xl mx-auto text-center">
+                    <p class="text-xl text-gray-700 leading-relaxed mb-6">
+                        Мы стремимся быть не просто сервисным центром, а надежным партнером для наших клиентов, 
+                        предлагая не только качественный ремонт, но и комплексное обслуживание техники 
+                        на протяжении всего ее жизненного цикла.
+                    </p>
+                    <div class="inline-flex items-center text-blue-600 font-medium">
+                        <i class="fas fa-quote-left text-2xl mr-3 opacity-50"></i>
+                        <span>Ваша рабочая техника - наша забота!</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .mb-17 {
+    margin-bottom: 40px;
+    margin-top: -60px;
+}
+</style>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const toggleBtn = document.getElementById('gallery-toggle');
+        const closeBtn = document.getElementById('close-gallery');
+        const drawer = document.getElementById('gallery-drawer');
+        
+        // Открытие галереи
+        toggleBtn.addEventListener('click', function() {
+            drawer.style.maxHeight = drawer.scrollHeight + 'px';
+        });
+        
+        // Закрытие галереи
+        closeBtn.addEventListener('click', function() {
+            drawer.style.maxHeight = '0';
+        });
+    });
+</script>
+
+<!-- Секция: Галерея -->
+<section id="gallery" class="page hidden bg-gradient-to-b from-white to-gray-50">
+  <div class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+        
+  <div class="container mx-auto px-4">
+      <!-- Заголовок -->
+      <div class="text-center mb-15">
+        <span class="text-blue-600 font-semibold text-lg block mb-3">Фото из жизни сервиса</span>
+        <h2 class="text-4xl font-bold text-gray-900 mb-5">Наш сервис <span class="text-blue-600">изнутри</span></h2>
+        <p class="text-gray-600 max-w-2xl mx-auto mb-6">Посмотрите, как мы работаем — от приемки до счастливого клиента.</p>
+      </div>
+
+      <!-- Сетка галереи -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="gallery-container">
+        <!-- Карточка 1: Приемка техники -->
+        <div class="gallery-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer transition-transform hover:scale-105" data-image="Img/priemka.png">
+          <div class="h-56 bg-gray-200 flex items-center justify-center">
+            <img src="Img/priemka.png" alt="Приемка техники" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4">
+            <h3 class="font-bold text-lg mb-1">Приемка техники</h3>
+            <p class="text-gray-600 text-sm">Тщательная диагностика оборудования</p>
+          </div>
+        </div>
+
+        <!-- Карточка 2: Оборудование -->
+        <div class="gallery-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer transition-transform hover:scale-105" data-image="Img/oborudovanie.png">
+          <div class="h-56 bg-gray-200 flex items-center justify-center">
+            <img src="Img/oborudovanie.png" alt="Оборудование" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4">
+            <h3 class="font-bold text-lg mb-1">Современное оборудование</h3>
+            <p class="text-gray-600 text-sm">Профессиональные инструменты</p>
+          </div>
+        </div>
+        
+        <!-- Карточка 3: Запчасти -->
+        <div class="gallery-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer transition-transform hover:scale-105" data-image="Img/zapcasti.png">
+          <div class="h-56 bg-gray-200 flex items-center justify-center">
+            <img src="Img/zapcasti.png" alt="Запчасти" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4">
+            <h3 class="font-bold text-lg mb-1">Оригинальные запчасти</h3>
+            <p class="text-gray-600 text-sm">Качественные комплектующие</p>
+          </div>
+        </div>
+        
+        <!-- Карточка 4: Мастера -->
+        <div class="gallery-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer transition-transform hover:scale-105" data-image="Img/masterscay.png">
+          <div class="h-56 bg-gray-200 flex items-center justify-center">
+            <img src="Img/masterscay.png" alt="Мастера" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4">
+            <h3 class="font-bold text-lg mb-1">Опытные мастера</h3>
+            <p class="text-gray-600 text-sm">Квалифицированные специалисты</p>
+          </div>
+        </div>
+        
+        <!-- Карточка 5: Команда -->
+        <div class="gallery-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer transition-transform hover:scale-105" data-image="Img/comand.png">
+          <div class="h-56 bg-gray-200 flex items-center justify-center">
+            <img src="Img/comand.png" alt="Команда" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4">
+            <h3 class="font-bold text-lg mb-1">Наша команда</h3>
+            <p class="text-gray-600 text-sm">Слаженная работа</p>
+          </div>
+        </div>
+        
+        <!-- Карточка 6: Здание сервиса -->
+        <div class="gallery-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer transition-transform hover:scale-105" data-image="Img/Com.png">
+          <div class="h-56 bg-gray-200 flex items-center justify-center">
+            <img src="Img/Com.png" alt="Здание сервиса" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4">
+            <h3 class="font-bold text-lg mb-1">Наш сервисный центр</h3>
+            <div class="flex items-start mt-2">
+              <i class="fas fa-map-marker-alt text-blue-500 mt-1 mr-2"></i>
+              <div>
+                <p class="text-gray-800">ул. Комсомольская, 212</p>
+                <p class="text-gray-600 text-sm">г. Рубцовск, Алтайский край</p>
+                <p class="text-gray-600 text-sm">658200</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Карточка 7: Здание сервиса (дополнительное фото) -->
+        <div class="gallery-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer transition-transform hover:scale-105" data-image="Img/building.jpg">
+          <div class="h-56 bg-gray-200 flex items-center justify-center">
+            <img src="Img/building.jpg" alt="Здание сервиса" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4">
+            <h3 class="font-bold text-lg mb-1">Наш сервисный центр</h3>
+            <div class="flex items-start mt-2">
+              <i class="fas fa-map-marker-alt text-blue-500 mt-1 mr-2"></i>
+              <div>
+                <p class="text-gray-800">ул. Комсомольская, 212</p>
+                <p class="text-gray-600 text-sm">г. Рубцовск, Алтайский край</p>
+                <p class="text-gray-600 text-sm">658200</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Карточка 8: Счастливый клиент -->
+        <div class="gallery-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer transition-transform hover:scale-105" data-image="Img/happy_client.jpg">
+          <div class="h-56 bg-gray-200 flex items-center justify-center">
+            <img src="Img/happy_client.jpg" alt="Счастливый клиент" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4">
+            <h3 class="font-bold text-lg mb-1">Счастливый клиент</h3>
+            <p class="text-gray-600 text-sm mb-3">Ваша улыбка - наша лучшая награда</p>
+            <div class="mt-2 flex items-center text-green-600">
+              <i class="fas fa-check-circle mr-1"></i>
+              <span class="text-sm">Гарантия качества</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Модальное окно -->
+  <div id="gallery-modal" class="fixed inset-0 bg-black bg-opacity-90 hidden justify-center items-center z-50">
+    <div class="relative w-full h-full flex items-center justify-center p-4">
+      <!-- Кнопка закрытия -->
+      <button class="absolute top-4 right-4 text-white text-3xl z-50 bg-black bg-opacity-50 rounded-full w-10 h-10 flex items-center justify-center hover:bg-opacity-70 transition-colors modal-close">
+        &times;
+      </button>
+      
+      <!-- Контейнер для изображения -->
+      <div class="max-w-6xl max-h-[90vh] w-full h-full flex items-center justify-center">
+        <img id="modal-image" src="" alt="Увеличенное изображение" 
+             class="max-w-full max-h-full object-contain rounded-lg shadow-2xl">
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  #gallery-modal {
+    display: flex;
+    transition: opacity 0.3s ease;
+  }
+  
+  #gallery-modal:not(.hidden) {
+    display: flex;
+  }
+  
+  #gallery-modal.hidden {
+    display: none;
+  }
+  
+  /* Плавное появление изображения */
+  #modal-image {
+    transition: transform 0.3s ease;
+  }
+  
+  #modal-image.zoomed {
+    transform: scale(2); /* Увеличиваем в 2 раза */
+    cursor: zoom-out;
+  }
+  
+  #modal-image:not(.zoomed) {
+    cursor: zoom-in;
+  }
+</style>
+
+<script>
+  // Изолируем функционал галереи в отдельный модуль
+  (function() {
+    'use strict';
+    
+    const gallery = {
+      init: function() {
+        this.modal = document.getElementById('gallery-modal');
+        this.modalImage = document.getElementById('modal-image');
+        this.container = document.getElementById('gallery-container');
+        
+        if (!this.container || !this.modal) return;
+        
+        this.bindEvents();
+      },
+      
+      bindEvents: function() {
+        // Клик по карточкам галереи
+        this.container.addEventListener('click', (e) => {
+          const card = e.target.closest('.gallery-card');
+          if (card) {
+            const imageSrc = card.getAttribute('data-image');
+            this.openModal(imageSrc);
+          }
+        });
+        
+        // Клик по кнопке закрытия
+        const closeBtn = this.modal.querySelector('.modal-close');
+        if (closeBtn) {
+          closeBtn.addEventListener('click', () => this.closeModal());
+        }
+        
+        // Клик по фону
+        this.modal.addEventListener('click', (e) => {
+          if (e.target === this.modal) {
+            this.closeModal();
+          }
+        });
+        
+        // Закрытие по Escape
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && !this.modal.classList.contains('hidden')) {
+            this.closeModal();
+          }
+        });
+        
+        // Двойной клик для зума
+        this.modalImage.addEventListener('dblclick', () => {
+          this.toggleZoom();
+        });
+      },
+      
+      openModal: function(imageSrc) {
+        this.modalImage.src = imageSrc;
+        this.modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      },
+      
+      closeModal: function() {
+        this.modal.classList.add('hidden');
+        document.body.style.overflow = 'auto';
+        // Сбрасываем зум при закрытии
+        this.modalImage.classList.remove('zoomed');
+      },
+      
+      toggleZoom: function() {
+        this.modalImage.classList.toggle('zoomed');
+      }
+    };
+    
+    // Инициализируем после загрузки DOM
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => gallery.init());
+    } else {
+      gallery.init();
+    }
+  })();
+</script>
+ </section>
+        <section id="contact" class="page">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+            <span class="text-blue-600 font-semibold">Контакты</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mt-2 mb-4">Свяжитесь с нами</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">Мы всегда рады помочь. Напишите нам или приезжайте в гости!</p>
+        </div>
+        
+        <div class="flex flex-col lg:flex-row gap-8">
+            <!-- Контактная информация -->
+           <div class="lg:w-1/2 border border-gray-300 rounded-xl shadow-md p-8">
+                <div class="bg-white p-8 rounded-xl shadow-sm h-full">
+                    <h3 class="text-2xl font-semibold mb-6 text-gray-800">Как нас найти</h3>
+            
+                    <div class="space-y-6">
+                        <!-- Контактные блоки -->
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 text-blue-600 p-3 rounded-full mr-4">
+                                <i class="fas fa-map-marker-alt text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-700 text-lg mb-1">Адрес:</h4>
+                                <p class="text-gray-800">658200, Россия, Алтайский край, г. Рубцовск, ул. Комсомольская, 212</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 text-blue-600 p-3 rounded-full mr-4">
+                                <i class="fas fa-phone-alt text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-700 text-lg mb-1">Телефоны:</h4>
+                                <p class="text-gray-800">(38557) 4-05-42, 4-05-43</p>
+                                <p class="text-gray-800">8-963-518-18-98</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 text-blue-600 p-3 rounded-full mr-4">
+                                <i class="fas fa-envelope text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-700 text-lg mb-1">Email:</h4>
+                                <p class="text-gray-800">pochta@syntez-rub.ru</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 text-blue-600 p-3 rounded-full mr-4">
+                                <i class="fas fa-clock text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-700 text-lg mb-1">Режим работы:</h4>
+                                <p class="text-gray-800">Пн-Пт: с 9-00 до 18-00</p>
+                                <p class="text-gray-800">Сб-Вс: с 9-00 до 16-00</p>
+                            </div>
+                        </div>
+                         
+                        <div class="mt-8">
+                            <h4 class="font-medium text-gray-700 text-lg mb-3">Мы в социальных сетях:</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="bg-blue-100 text-blue-600 hover:bg-blue-200 w-10 h-10 rounded-full flex items-center justify-center transition">
+                                    <i class="fab fa-vk text-lg"></i>
+                                </a>
+                                <a href="#" class="bg-blue-100 text-blue-600 hover:bg-blue-200 w-10 h-10 rounded-full flex items-center justify-center transition">
+                                    <i class="fab fa-telegram text-lg"></i>
+                                </a>
+                                <a href="#" class="bg-blue-100 text-blue-600 hover:bg-blue-200 w-10 h-10 rounded-full flex items-center justify-center transition">
+                                    <i class="fab fa-instagram text-lg"></i>
+                                </a>
+                                <a href="#" class="bg-blue-100 text-blue-600 hover:bg-blue-200 w-10 h-10 rounded-full flex items-center justify-center transition">
+                                    <i class="fab fa-whatsapp text-lg"></i>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Кнопка карты -->
+                        <button onclick="toggleMap()" class="mt-6 w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition duration-300 flex items-center justify-center" style="background-image: 
+              linear-gradient(to right, rgba(59, 130, 246, 0.7), rgba(37, 99, 235, 0.6));">
+                            <i class="fas fa-map-marked-alt mr-2"></i>
+                            Найти на карте
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Форма обратной связи -->
+          <div class="lg:w-1/2 border border-gray-300 rounded-xl shadow-md p-8">
+                <div class="bg-white p-8 rounded-xl shadow-sm h-full">
+                    <h3 class="text-2xl font-semibold mb-6 text-gray-800">Обратная связь</h3>
+                    <form id="contact-form">
+                        <div class="mb-4">
+                            <label for="name" class="block text-gray-700 mb-2">Ваше имя</label>
+                            <input type="text" id="name" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="phone" class="block text-gray-700 mb-2">Телефон</label>
+                            <input type="tel" id="phone" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="message" class="block text-gray-700 mb-2">Сообщение</label>
+                            <textarea id="message" rows="4" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 min-h-[261px]"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-md transition duration-300" style="background-image: 
+              linear-gradient(to right, rgba(59, 130, 246, 0.7), rgba(37, 99, 235, 0.6));">
+                            Отправить
+                        </button>
+                        <div id="form-response" class="mt-4 text-center"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Карта (изначально скрыта) -->
+    <div id="mapContainer" class="hidden w-full px-4 pb-8">
+        <div class="container mx-auto">
+            <div class="bg-white p-4 rounded-xl shadow-md">
+                <div class="h-[400px] w-full">
+                    <iframe 
+                        src="https://yandex.ru/map-widget/v1/?ll=81.204297%2C51.513669&mode=search&text=%D0%A3%D0%BB.%20%D0%9A%D0%BE%D0%BC%D1%81%D0%BE%D0%BC%D0%BE%D0%BB%D1%8C%D1%81%D0%BA%D0%B0%D1%8F%2C%20212%2C%20%D0%A0%D1%83%D0%B1%D1%86%D0%BE%D0%B2%D1%81%D0%BA&z=17" 
+                        class="w-full h-full rounded-lg border-4 border-grey-500" 
+                        frameborder="0"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    function toggleMap() {
+        const mapContainer = document.getElementById('mapContainer');
+        mapContainer.classList.toggle('hidden');
+        
+        if (!mapContainer.classList.contains('hidden')) {
+            // Плавная прокрутка к карте с учетом отступов
+            setTimeout(() => {
+                mapContainer.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'end'
+                });
+            }, 50);
+        }
+    }
+
+    const form = document.getElementById('contact-form');
+    const formResponse = document.getElementById('form-response');
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const name = document.getElementById('name').value;
+        const phone = document.getElementById('phone').value;
+        const message = document.getElementById('message').value;
+        
+        // Простая валидация
+        if (name && phone && message) {
+            // Отправка формы (здесь нужно добавить логику отправки на сервер или почту)
+            formResponse.textContent = 'Сообщение отправлено!';
+            formResponse.classList.add('text-green-600');
+            form.reset();
+        } else {
+            formResponse.textContent = 'Пожалуйста, заполните все поля!';
+            formResponse.classList.add('text-red-600');
+        }
+    });
+</script>
+
+    </main>
+
+    <script>
+        // JavaScript-код для обработки кликов на ссылки в меню и отображения соответствующего контента
+        document.addEventListener('DOMContentLoaded', function () {
+            const pages = document.querySelectorAll('.page');
+            const navLinks = document.querySelectorAll('nav a[href^="#"]');
+
+            // Показ нужной секции
+            function showPage(id) {
+                pages.forEach(page => {
+                    page.classList.remove('active');
+                });
+
+                const targetPage = document.getElementById(id);
+                if (targetPage) {
+                    targetPage.classList.add('active');
+                    history.pushState(null, null, `#${id}`);
+                }
+
+                window.scrollTo(0, 0);
+            }
+
+            // Обработчики для меню
+            navLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').slice(1); 
+                    showPage(targetId);
+                });
+            });
+
+            // Поддержка "назад/вперёд"
+            window.addEventListener('popstate', function () {
+                const hash = window.location.hash.slice(1) || 'home';
+                showPage(hash);
+            });
+
+            // Инициализация по хешу
+            const initialHash = window.location.hash.slice(1) || 'home';
+            showPage(initialHash);
+        });
+    </script>
+
+    <style>
+        /* Стили для секций */
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+    </style>
+  
+<div class="fixed right-0 top-1/2 transform -translate-y-1/2 z-50">
+    <!-- Первая вкладка -->
+    <div id="cta-tab" class="bg-blue-600 hover:bg-blue-400 text-white font-bold py-6 px-6 cursor-pointer mt-2 group relative">
+        <i class="fas fa-envelope fa-2x"></i>
+        
+    </div>
+    <div id="cta-panel" class="hidden w-96 bg-blue-600 text-white p-6 absolute right-full top-0">
+       <h2 class="text-3xl font-bold mb-6">Нужен ремонт техники?</h2>
+        <p class="text-lg mb-6">Оставьте заявку прямо сейчас и получите бесплатную диагностику!</p>
+        <div class="flex justify-center mb-6">
+            <a href="#contact" class="bg-transparent hover:bg-blue-700 border-2 border-white text-white font-bold py-3 px-6 rounded-lg transition duration-300 inline-block text-lg">
+                <i class="fas fa-envelope mr-2"></i> Написать
+            </a>
+        </div>
+        <div class="text-sm">
+            <p>Мы работаем быстро и качественно.</p>
+            <p>Наши специалисты имеют большой опыт в ремонте техники.</p>
+        </div>
+    </div>
+    
+    <!-- Вторая вкладка -->
+    <div id="process-tab" class="bg-blue-600 hover:bg-green-600 text-white font-bold py-6 px-6 cursor-pointer mt-2 group relative">
+        <i class="fas fa-cogs fa-2x"></i>
+    </div>
+    <div id="process-panel" class="hidden w-[420px] bg-blue-600 text-white p-6 absolute right-full top-0">
+        <h2 class="text-3xl font-bold mb-6">Наш процесс</h2>
+        <p class="text-lg mb-6">Прозрачный и понятный процесс ремонта от приема до выдачи готовой техники.</p>
+        
+        <div class="space-y-6 mb-4">
+            <div class="flex items-start">
+                <div class="bg-white text-blue-600 rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4 flex-shrink-0 text-lg">1</div>
+                <div>
+                    <h3 class="font-bold text-lg mb-1">Прием техники</h3>
+                    <p class="text-sm">Вы приносите технику в сервис или вызываете мастера на дом</p>
+                </div>
+            </div>
+            
+            <div class="flex items-start">
+                <div class="bg-white text-blue-600 rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4 flex-shrink-0 text-lg">2</div>
+                <div>
+                    <h3 class="font-bold text-lg mb-1">Диагностика</h3>
+                    <p class="text-sm">Бесплатная диагностика и определение стоимости ремонта</p>
+                </div>
+            </div>
+            
+            <div class="flex items-start">
+                <div class="bg-white text-blue-600 rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4 flex-shrink-0 text-lg">3</div>
+                <div>
+                    <h3 class="font-bold text-lg mb-1">Ремонт</h3>
+                    <p class="text-sm">Согласование и выполнение ремонта с использованием качественных запчастей</p>
+                </div>
+            </div>
+            
+            <div class="flex items-start">
+                <div class="bg-white text-blue-600 rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4 flex-shrink-0 text-lg">4</div>
+                <div>
+                    <h3 class="font-bold text-lg mb-1">Выдача</h3>
+                    <p class="text-sm">Проверка работы и выдача техники с гарантией</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Третья вкладка: График работы -->
+<div id="schedule-tab" class="bg-blue-600 hover:bg-orange-600 text-white font-bold py-6 px-6 cursor-pointer mt-2 group relative">
+    <i class="far fa-clock fa-2x"></i>
+    
+</div>
+<div id="schedule-panel" class="hidden w-80 bg-blue-600 text-white p-6 absolute right-full top-0">
+    <h2 class="text-3xl font-bold mb-6">График работы</h2>
+    
+    <div class="space-y-4 mb-4">
+        <div class="flex items-center justify-between py-2 border-b border-blue-500">
+            <span class="font-semibold">Понедельник</span>
+            <span class="font-medium">9:00 - 18:00</span>
+        </div>
+        <div class="flex items-center justify-between py-2 border-b border-blue-500">
+            <span class="font-semibold">Вторник</span>
+            <span class="font-medium">9:00 - 18:00</span>
+        </div>
+        <div class="flex items-center justify-between py-2 border-b border-blue-500">
+            <span class="font-semibold">Среда</span>
+            <span class="font-medium">9:00 - 18:00</span>
+        </div>
+        <div class="flex items-center justify-between py-2 border-b border-blue-500">
+            <span class="font-semibold">Четверг</span>
+            <span class="font-medium">9:00 - 18:00</span>
+        </div>
+        <div class="flex items-center justify-between py-2 border-b border-blue-500">
+            <span class="font-semibold">Пятница</span>
+            <span class="font-medium">9:00 - 18:00</span>
+        </div>
+        <div class="flex items-center justify-between py-2 border-b border-blue-500">
+            <span class="font-semibold text-red-300">Суббота</span>
+            <span class="font-medium text-red-300">10:00 - 16:00</span>
+        </div>
+        <div class="flex items-center justify-between py-2">
+            <span class="font-semibold text-red-300">Воскресенье</span>
+            <span class="font-medium text-red-300">Выходной</span>
+        </div>
+    </div>
+
+    <div id="status-indicator" class="bg-white bg-opacity-20 rounded-lg p-3 mt-4">
+        <div class="flex items-center">
+            <div id="status-dot" class="w-3 h-3 rounded-full mr-2"></div>
+            <span id="status-text" class="text-sm font-medium">Проверяем статус...</span>
+        </div>
+    </div>
+</div>
+</div>
+
+<script>
+// Функция для проверки статуса работы
+function checkShopStatus() {
+    const now = new Date();
+    const dayOfWeek = now.getDay(); // 0 - воскресенье, 1 - понедельник, ..., 6 - суббота
+    const currentHour = now.getHours();
+    const currentMinute = now.getMinutes();
+    const currentTime = currentHour + currentMinute / 60;
+
+    const statusDot = document.getElementById('status-dot');
+    const statusText = document.getElementById('status-text');
+
+    let isOpen = false;
+    let statusMessage = '';
+
+    // Проверяем по дням недели и времени
+    if (dayOfWeek === 0) { // Воскресенье - выходной
+        isOpen = false;
+        statusMessage = 'Сегодня выходной';
+    } else if (dayOfWeek === 6) { // Суббота
+        isOpen = currentTime >= 10 && currentTime < 16;
+        statusMessage = isOpen ? 'Сейчас мы открыты' : 'Сегодня до 16:00';
+    } else { // Понедельник-Пятница
+        isOpen = currentTime >= 9 && currentTime < 18;
+        statusMessage = isOpen ? 'Сейчас мы открыты' : 'Сегодня до 18:00';
+    }
+
+    // Обновляем статус
+    if (isOpen) {
+        statusDot.className = 'w-3 h-3 bg-green-400 rounded-full mr-2 animate-pulse';
+        statusText.textContent = statusMessage;
+    } else {
+        statusDot.className = 'w-3 h-3 bg-red-400 rounded-full mr-2';
+        statusText.textContent = statusMessage;
+    }
+    
+    console.log('Проверка статуса:', {
+        день: dayOfWeek,
+        время: currentTime.toFixed(2),
+        открыт: isOpen
+    });
+}
+
+// Проверяем статус при загрузке страницы и при открытии панели
+document.addEventListener('DOMContentLoaded', function() {
+    checkShopStatus();
+    
+    // Обновляем статус каждую минуту
+    setInterval(checkShopStatus, 60000);
+    
+    // Также проверяем статус при открытии панели графика
+    document.getElementById('schedule-tab').addEventListener('click', function() {
+        setTimeout(checkShopStatus, 100); // небольшая задержка для гарантии
+    });
+});
+
+ // JavaScript код остается без изменений
+    document.getElementById('cta-tab').addEventListener('click', function() {
+        var panel = document.getElementById('cta-panel');
+        var processPanel = document.getElementById('process-panel');
+        var schedulePanel = document.getElementById('schedule-panel');
+        
+        if (!processPanel.classList.contains('hidden')) processPanel.classList.add('hidden');
+        if (!schedulePanel.classList.contains('hidden')) schedulePanel.classList.add('hidden');
+        
+        panel.classList.toggle('hidden');
+    });
+
+    document.getElementById('process-tab').addEventListener('click', function() {
+        var panel = document.getElementById('process-panel');
+        var ctaPanel = document.getElementById('cta-panel');
+        var schedulePanel = document.getElementById('schedule-panel');
+        
+        if (!ctaPanel.classList.contains('hidden')) ctaPanel.classList.add('hidden');
+        if (!schedulePanel.classList.contains('hidden')) schedulePanel.classList.add('hidden');
+        
+        panel.classList.toggle('hidden');
+    });
+
+    document.getElementById('schedule-tab').addEventListener('click', function() {
+        var panel = document.getElementById('schedule-panel');
+        var ctaPanel = document.getElementById('cta-panel');
+        var processPanel = document.getElementById('process-panel');
+        
+        if (!ctaPanel.classList.contains('hidden')) ctaPanel.classList.add('hidden');
+        if (!processPanel.classList.contains('hidden')) processPanel.classList.add('hidden');
+        
+        panel.classList.toggle('hidden');
+    });
+
+    document.addEventListener('click', function(event) {
+        var ctaTab = document.getElementById('cta-tab');
+        var processTab = document.getElementById('process-tab');
+        var scheduleTab = document.getElementById('schedule-tab');
+        var ctaPanel = document.getElementById('cta-panel');
+        var processPanel = document.getElementById('process-panel');
+        var schedulePanel = document.getElementById('schedule-panel');
+        
+        if (!ctaTab.contains(event.target) && !ctaPanel.contains(event.target) && 
+            !processTab.contains(event.target) && !processPanel.contains(event.target) &&
+            !scheduleTab.contains(event.target) && !schedulePanel.contains(event.target)) {
+            ctaPanel.classList.add('hidden');
+            processPanel.classList.add('hidden');
+            schedulePanel.classList.add('hidden');
+        }
+    });
+</script>
+
+<style>
+#cta-tab, #process-tab, #schedule-tab {
+    writing-mode: horizontal-tb;
+    text-orientation: mixed;
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+    transition: all 0.3s ease;
+    width: 100px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#cta-panel, #process-panel, #schedule-panel {
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+/* Стили для подсказок */
+.group:hover .absolute {
+    opacity: 1;
+    transform: translate(-0.5rem, -50%) !important;
+}
+
+.absolute {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Стили для скроллбара */
+#process-panel::-webkit-scrollbar,
+#schedule-panel::-webkit-scrollbar {
+    width: 8px;
+}
+
+#process-panel::-webkit-scrollbar-track,
+#schedule-panel::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+#process-panel::-webkit-scrollbar-thumb,
+#schedule-panel::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+}
+
+#process-panel::-webkit-scrollbar-thumb:hover,
+#schedule-panel::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.top-1\/2 {
+    top: 45%;
+}
+
+/* Анимация для подсказок */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translate(-1rem, -50%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-0.5rem, -50%);
+    }
+}
+
+.group:hover .absolute {
+    animation: slideIn 0.3s ease-out forwards;
+}
+</style>
+
+<footer class="bg-gradient-to-r from-blue-800 via-blue-700 to-blue-900 text-white py-8 bg-cover bg-center bg-no-repeat relative">
+       <!--style="background-image: url('Img/footer.png'); background-blend-mode: overlay;"--> 
+    <div class="container mx-auto px-4 relative z-10">
+        <div class="flex flex-col md:flex-row justify-between mb-4">
+            <div class="mb-6 md:mb-0 md:w-1/3">
+                <h3 class="text-2xl font-bold mb-2">ООО "СИНТЕЗ"</h3>
+                <p class="text-gray-300 text-lg">Профессиональный сервисный центр в Рубцовске</p>
+                <div class="flex space-x-4 mt-2">
+                    <a href="#" class="text-gray-300 hover:text-white transition">
+                        <i class="fab fa-vk text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-300 hover:text-white transition">
+                        <i class="fab fa-telegram text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-300 hover:text-white transition">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-300 hover:text-white transition">
+                        <i class="fab fa-whatsapp text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="mb-6 md:mb-0 md:w-1/3">
+                <h4 class="font-semibold text-lg mb-2">Меню</h4>
+                <ul class="space-y-1">
+                    <li><a href="#home" class="text-gray-300 hover:text-white transition">Главная</a></li>
+                    <li><a href="#shop" class="text-gray-300 hover:text-white transition">Магазин</a></li>
+                    <li><a href="#repair" class="text-gray-300 hover:text-white transition">Ремонт техники</a></li>
+                    <li><a href="#about" class="text-gray-300 hover:text-white transition">О нас</a></li>
+                    <li><a href="#contact" class="text-gray-300 hover:text-white transition">Контакты</a></li>
+                </ul>
+            </div>
+            
+            <div class="md:w-1/3">
+                <h4 class="font-semibold text-lg mb-2">Контакты</h4>
+                <ul class="space-y-1 text-gray-300">
+                    <li class="flex items-start">
+                        <i class="fas fa-map-marker-alt mt-1 mr-2 text-sm"></i>
+                        <span>г. Рубцовск, ул. Комсомольская, 212</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-phone-alt mr-2 text-sm"></i>
+                        <span>(38557) 4-05-43</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-envelope mr-2 text-sm"></i>
+                        <span>pochta@syntez-rub.ru</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="border-t border-white-700 mt-4 pt-4 text-center text-gray-300 text-sm">
+            <p>&copy; 2025 ООО "СИНТЕЗ". Все права защищены.</p>
+        </div>
+    </div>
+    
+    <!-- Добавляем эффект наложения -->
+    <div class="absolute inset-0 bg-blue-900/70"></div>
+</footer>
+
+
+</body>
+</html>
